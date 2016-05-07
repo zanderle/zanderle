@@ -1,0 +1,21 @@
+{
+  "name": "zanderle",
+  "version": "0.0.0",
+  "authors": [
+    "Zan Anderle <zan.anderle@gmail.com>"
+  ],
+  "description": "My website",
+  "license": "MIT",
+  "homepage": "zanderle.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "zanderle/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "purecss": "~0.6.0"
+  }
+}
