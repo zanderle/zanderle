@@ -1,28 +1,43 @@
 <!doctype html>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
-<title>{% block title %}Welcome{% endblock %} — zanderle</title>
+<head>
+    <script src="{{ '/bower_components/pace/pace.js'|asseturl }}"></script>
+    <link href="{{ '/bower_components/pace/themes/silver/pace-theme-minimal.css'|asseturl }}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&pure/0.6.0/grids-min.css&pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&pure/0.6.0/grids-min.css&pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link rel="stylesheet" href="{{
+  '/static/gen/styles.css'|asseturl }}">
+    <link rel="stylesheet" href="{{ get_pygments_stylesheet()|url }}">
+    <title>{% block title %}Welcome{% endblock %} — zanderle</title>
+</head>
 <body>
-  <header>
-    <h1>zanderle</h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        <li{% if this._path == '/' %} class="active"{% endif
-          %}><a href="{{ '/'|url }}">Welcome</a></li>
-        {% for href, title in [
-          ['/projects', 'Projects'],
-          ['/about', 'About']
-        ] %}
-          <li{% if this.is_child_of(href) %} class="active"{% endif
-            %}><a href="{{ href|url }}">{{ title }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </header>
-  <div class="page">
-    {% block body %}{% endblock %}
-  </div>
-  <footer>
-    &copy; Copyright 2016 by Zan Anderle.
-  </footer>
+    <header role="banner">
+        <h1><a href="/">Žan Anderle</a></h1>
+        <nav>
+            <ul>
+                {% for href, title in [
+                    ['/projects', 'Projects'],
+                    ['/musings', 'Musings']
+                ] %}
+                    <li><a href="{{ href|url }}">{{ title }}</a></li>
+                {% endfor %}
+                <li><a href="{{ bag('social', 'github') }}">Github</a></li>
+                <li><a href="{{ bag('social', 'twitter') }}">Twitter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+    <footer>
+        &copy; Copyright 2016 by Žan Anderle.
+    </footer>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script type=text/javascript src="{{
+      '/static/gen/app.js'|asseturl }}" charset="utf-8"></script>
 </body>
