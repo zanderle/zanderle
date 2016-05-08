@@ -1,6 +1,46 @@
-title: Welcome to zanderle!
+_model: intro
+---
+title: Introduction
 ---
 body:
 
-This is a basic demo website that shows how to use Lektor for a basic
-website with some pages.
+#### intro ####
+title: Text
+----
+body:
+
+# Hi!
+
+I am a full stack web developer with a passion for user experience. My background in mechanical engineering allows me to see software problems more broadly and how they relate to the product as a whole. I’ve done extensive work with Django and Python. I always strive for elegant code and excelent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music.
+----
+selected: yes
+#### intro ####
+title: Code
+----
+body:
+
+```python
+print("Hi!")
+
+# Create zanderle
+
+from .models import FullStackWebDeveloper
+
+zanderle = FullStackWebDeveloper.objects.create(
+    name = "",
+    ux_developer = True,  # http://
+    background = 'MechE',
+    friendly = True,
+    community = True,
+    github = "",
+    twitter = ""
+    )
+zanderle.save()
+zanderle.techs.add(django, python, d3js)
+music = Interest.objects.create(name='music', description='', resources={'blog': '', 'band': ''})
+dataviz = Interest.objects.create()
+zanderle.interests.add(music, dataviz)
+
+```
+----
+selected: 

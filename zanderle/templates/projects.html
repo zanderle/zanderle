@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Projects{% endblock %}
+{% block body %}
+  <h1>Projects</h1>
+  <div class="projects">
+  {% for project in this.children %}
+    <div class="project">
+      {% set image = project.attachments.images.first() %}
+      {% if image %}
+        <img src="{{ image.thumbnail(320)|url }}" alt="">
+      {% endif %}
+      <h2><a href="{{ project|url }}">{{ project.title }}</a>
+        <em>({{ project.date.year }})</em></h2>
+    </div>
+  {% endfor %}
+  </div>
+{% endblock %}
