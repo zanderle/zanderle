@@ -11,11 +11,13 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "zanderle/assets/bower_components",
+    "assets/bower_components",
     "test",
     "tests"
   ],
   "dependencies": {
-    "purecss": "~0.6.0"
+    "purecss": "~0.6.0",
+    "normalize-css": "~4.1.1",
+    "pace": "~1.0.2"
   }
 }
