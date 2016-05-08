@@ -1,0 +1,121 @@
+$light-grey: #bbb;
+
+$footer-height: 22px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+     -moz-border-bottom-left-radius: $radius;
+      -ms-border-bottom-left-radius: $radius;
+          border-bottom-left-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+     -moz-border-bottom-right-radius: $radius;
+      -ms-border-bottom-right-radius: $radius;
+          border-bottom-right-radius: $radius;
+}
+
+@mixin border-top-radius($radius) {
+  -webkit-border-top-left-radius: $radius;
+     -moz-border-top-left-radius: $radius;
+      -ms-border-top-left-radius: $radius;
+          border-top-left-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+     -moz-border-top-right-radius: $radius;
+      -ms-border-top-right-radius: $radius;
+          border-top-right-radius: $radius;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: $footer-height;
+    background-image: url('/static/grey.png');
+}
+
+main + footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $footer-height;
+}
+
+nav,
+[role="navigation"] {
+    ul li a {
+        text-decoration: none;
+    }
+}
+
+.highlight {
+    background-color: #49483e;
+    padding: 10px 30px;
+}
+
+main {
+    max-width: 976px;
+    padding: 0 2em;
+    margin: 0 auto;
+}
+
+[role="banner"] {
+    display: block;
+    width: 100%;
+
+    h1 {
+        display: inline-block;
+    }
+
+    nav,
+    [role="navigation"] {
+        float: right;
+        margin: 25px;
+        ul li {
+            display: inline;
+            padding: 10px 20px;
+        }
+    }
+}
+
+[role="tablist"] {
+    padding-left: 0;
+    margin: 0;
+    li {
+        display: inline-block;
+    }
+}
+[role="tab"] {
+    padding: 10px 20px;
+    display: block;
+}
+[role="tab"][aria-selected=true] {
+    border: 1px solid $light-grey;
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
+    @include border-top-radius(5px);
+}
+[role="tabpanel"] {
+    display: none;
+}
+[role="tabpanel"][aria-expanded=true] {
+    display: block;
+}
+
+.tabs-area {
+    [role="tab"][aria-selected=true] {
+        background-color: white;
+    }
+    .tabs-content {
+    background-color: white;
+        border: 1px solid $light-grey;
+        padding: 30px 50px;
+        @include border-bottom-radius(5px);
+    }
+}
