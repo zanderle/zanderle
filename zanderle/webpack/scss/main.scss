@@ -197,16 +197,18 @@ main {
                     max-width: 4em;
                     text-align: center;
                     display: inline-block;
-                    padding: 15px 25px 22px;
+                    padding: 15px 25px;
+                    padding-bottom: 10px;
                     color: $grey-primary-0;
                     border-color: $grey-primary-0;
-                    -webkit-transition: color 0.4s ease;
-                    -moz-transition: color 0.4s ease;
-                    -o-transition: color 0.4s ease;
-                    transition: color 0.4s ease;
+                    -webkit-transition: color 0.3s linear, padding 0.3s ease-out;
+                    -moz-transition: color 0.3s linear, padding 0.3s ease-out;
+                    -o-transition: color 0.3s linear, padding 0.3s ease-out;
+                    transition: color 0.3s linear, padding 0.3s ease-out;
                     &:hover,
                     &:focus,
                     &:active {
+                        padding-bottom: 22px;
                         color: $color-secondary-2-2;
                         // background-color: $grey-secondary-2-1;
                         border-bottom: 4px solid $color-secondary-2-0;
