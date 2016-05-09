@@ -1,11 +1,11 @@
 _model: intro
 ---
-title: Introduction
+title: About Me
 ---
 body:
 
 #### intro ####
-title: Text
+title: Text Introduction
 ----
 body:
 
@@ -14,17 +14,21 @@ body:
 I am a full stack web developer with a passion for user experience. My background in mechanical engineering allows me to see software problems more broadly and how they relate to the product as a whole. I’ve done extensive work with Django and Python. I always strive for elegant code and excelent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music.
 ----
 selected: yes
+----
+slug: text
 #### intro ####
-title: Code
+title: Code Introuction
 ----
 body:
 
+`introduction.py`
 ```python
 print("Hi!")
 
-# Create zanderle
+# Create zanderle object
 
 from .models import FullStackWebDeveloper
+from .techs import django, python, d3js
 
 zanderle = FullStackWebDeveloper.objects.create(
     name = "",
@@ -44,3 +48,13 @@ zanderle.interests.add(music, dataviz)
 ```
 ----
 selected: 
+----
+slug: code
+#### intro ####
+title: Shiny Introduction
+----
+body: Shiny viz
+----
+selected: 
+----
+slug: shiny

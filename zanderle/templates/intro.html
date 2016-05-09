@@ -1,11 +1,12 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
+    <h1>{{ this.title }}</h1>
     <div class="tabs-area">
         <nav>
             <ul role="tablist">
                 {% for block in this.body.blocks %}
-                <li><a href="#block-{{ block.title }}" role="tab" {% if block.selected %}aria-selected=true{% endif %}>{{ block.title }}</a></li>
+                <li><a href="#block-{{ block.slug }}" role="tab" {% if block.selected %}aria-selected=true{% endif %}>{{ block.title }}</a></li>
                 {% endfor %}
             </ul>
         </nav>

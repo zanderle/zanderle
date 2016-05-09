@@ -13,29 +13,48 @@
     <link rel="stylesheet" href="{{
   '/static/gen/styles.css'|asseturl }}">
     <link rel="stylesheet" href="{{ get_pygments_stylesheet()|url }}">
+    <link rel="stylesheet" href="{{ '/bower_components/font-awesome/css/font-awesome.min.css'|url }}">
     <title>{% block title %}Welcome{% endblock %} — zanderle</title>
 </head>
 <body>
     <header role="banner">
-        <h1><a href="/">Žan Anderle</a></h1>
-        <nav>
-            <ul>
-                {% for href, title in [
-                    ['/projects', 'Projects'],
-                    ['/musings', 'Musings']
-                ] %}
-                    <li><a href="{{ href|url }}">{{ title }}</a></li>
-                {% endfor %}
-                <li><a href="{{ bag('social', 'github') }}">Github</a></li>
-                <li><a href="{{ bag('social', 'twitter') }}">Twitter</a></li>
-            </ul>
-        </nav>
+        <div>
+            <h1><a href="/">&lt; žanderle /&gt;</a></h1>
+            <nav>
+                <ul>
+                    {% for href, title, icon in [
+                        ['/projects', 'Projects', 'fa-code'],
+                        ['/musings', 'Musings', 'fa-pencil']
+                    ] %}
+                        <li>
+                            <a href="{{ href|url }}">
+                            <i aria-hidden="true" class="fa fa-2x fa-fw {{ icon }}"></i>
+                            {{ title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    <li>
+                        <a href="{{ bag('social', 'github') }}">
+                        <i aria-hidden="true" class="fa fa-2x fa-fw fa-github"></i>
+                        Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ bag('social', 'twitter') }}">
+                        <i aria-hidden="true" class="fa fa-2x fa-fw fa-twitter"></i>
+                        Twitter
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <h2>Developer by Day, Jazz Fiend by Night.</h2>
+        </div>
     </header>
     <main>
         {% block body %}{% endblock %}
     </main>
     <footer>
-        &copy; Copyright 2016 by Žan Anderle.
+        &copy; 2016 Created and designed by Žan Anderle.
     </footer>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <script type=text/javascript src="{{

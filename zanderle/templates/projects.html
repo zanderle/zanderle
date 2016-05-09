@@ -2,16 +2,18 @@
 {% block title %}Projects{% endblock %}
 {% block body %}
   <h1>Projects</h1>
-  <div class="projects">
+  <ul class="panel-list">
   {% for project in this.children %}
-    <div class="project">
+    <li class="pure-g">
       {% set image = project.attachments.images.first() %}
       {% if image %}
-        <img src="{{ image.thumbnail(320)|url }}" alt="">
+        <img src="{{ image.thumbnail(640)|url }}" alt="{{ project.title }} image" class="pure-u-2-5">
       {% endif %}
-      <h2><a href="{{ project|url }}">{{ project.title }}</a>
-        <em>({{ project.date.year }})</em></h2>
-    </div>
+      <div class="panel-content pure-u-3-5">
+        <h2><a href="{{ project|url }}">{{ project.title }}</a></h2>
+        <p>{{ project.excerpt }}</p>
+      </div>
+    </li>
   {% endfor %}
-  </div>
+  </ul>
 {% endblock %}
