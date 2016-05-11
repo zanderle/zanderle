@@ -1,17 +1,13 @@
 _model: intro
 ---
-title: About Me
+title: Hi!
 ---
 body:
 
 #### intro ####
 title: Text Introduction
 ----
-body:
-
-# Hi!
-
-I am a full stack web developer with a passion for user experience. My background in mechanical engineering allows me to see software problems more broadly and how they relate to the product as a whole. I’ve done extensive work with Django and Python. I always strive for elegant code and excelent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music.
+body: I am a full stack web developer with a passion for user experience. My background in mechanical engineering allows me to see software problems more broadly and how they relate to the product as a whole. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music.
 ----
 selected: yes
 ----
@@ -31,18 +27,24 @@ from .models import FullStackWebDeveloper
 from .techs import django, python, d3js
 
 zanderle = FullStackWebDeveloper.objects.create(
-    name = "",
-    ux_developer = True,  # http://
-    background = 'MechE',
+    name = "Žan Anderle",
+    ux_developer = True,
+    background = "MechE",
     friendly = True,
     community = True,
-    github = "",
-    twitter = ""
-    )
+    github = "https://github.com/zanderle",
+    twitter = "https://twitter.com/z_anderle"
+)
 zanderle.save()
 zanderle.techs.add(django, python, d3js)
-music = Interest.objects.create(name='music', description='', resources={'blog': '', 'band': ''})
-dataviz = Interest.objects.create()
+music = Interest.objects.create(
+    name="Music",
+    resources={'blog': 'http://musingsonmusic.com', 'band': 'http://salonski.tumblr.com/'}
+)
+dataviz = Interest.objects.create(
+    name="Data visualization",
+    resources={'Louis Armstrong Discography': 'http://musingsonmusic.com/2015/08/29/Louis-Armstrong-Discography/'}
+)
 zanderle.interests.add(music, dataviz)
 
 ```
