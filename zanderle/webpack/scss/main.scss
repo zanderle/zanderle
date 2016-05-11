@@ -36,8 +36,6 @@ $grey-secondary-2-2: #C6C0BC;
 $grey-secondary-2-3: #746D68;
 $grey-secondary-2-4: #433D39;
 
-$light-grey: #bbb;
-
 $footer-height: 22px;
 
 @import url(https://fonts.googleapis.com/css?family=Cutive+Mono|Open+Sans:400,300,700,400italic&subset=latin-ext);
@@ -107,6 +105,7 @@ main + footer {
     bottom: 0;
     width: 100%;
     height: $footer-height;
+    color: $grey-secondary-1-2;
 }
 
 h1 a,
@@ -207,13 +206,17 @@ main {
                     transition: color 0.3s linear, padding 0.3s ease-out;
                     &:hover,
                     &:focus,
-                    &:active {
+                    &:active,
+                    &[aria-expanded="true"]:hover,
+                    &[aria-expanded="true"]:focus,
+                    &[aria-expanded="true"]:active {
                         padding-bottom: 22px;
                         color: $color-secondary-2-2;
-                        // background-color: $grey-secondary-2-1;
                         border-bottom: 4px solid $color-secondary-2-0;
                     }
-                    // @include border-radius(8px);
+                    &[aria-expanded="true"] {
+                        color: $color-secondary-2-4;
+                    }
                 }
             }
         }
@@ -232,7 +235,7 @@ main {
     display: block;
 }
 [role="tab"][aria-selected=true] {
-    border: 1px solid $light-grey;
+    border: 1px solid $grey-primary-1;
     border-bottom: 1px solid white;
     margin-bottom: -1px;
     @include border-top-radius(5px);
@@ -250,7 +253,7 @@ main {
     }
     .tabs-content {
     background-color: white;
-        border: 1px solid $light-grey;
+        border: 1px solid $grey-primary-1;
         padding: 15px 50px 30px;
         @include border-bottom-radius(5px);
     }
@@ -271,7 +274,7 @@ ul.panel-list {
         background-color: white;
         display: block;
         padding: 20px 30px;
-        border: 1px solid $light-grey;
+        border: 1px solid $grey-primary-1;
         border-top-width: 0;
         .panel-content {
             vertical-align: top;
@@ -288,7 +291,8 @@ body {
   font-size: 100%;
 }
 
-#page {
+[role="banner"],
+main {
   font-size: 1em;
   /* equivalent to 16px */
   line-height: 1.25;
@@ -296,7 +300,8 @@ body {
 }
 
 @media (min-width: 43.75em) {
-  #page {
+  [role="banner"],
+  main {
     font-size: 1em;
     /* equivalent to 16px */
     line-height: 1.375;

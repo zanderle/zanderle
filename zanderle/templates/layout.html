@@ -27,7 +27,7 @@
                         ['/musings', 'Musings', 'fa-pencil']
                     ] %}
                         <li>
-                            <a href="{{ href|url }}">
+                            <a {% if this.is_child_of(href) %}aria-expanded="true"{% endif%} href="{{ href|url }}">
                             <i aria-hidden="true" class="fa fa-2x fa-fw {{ icon }}"></i>
                             {{ title }}
                             </a>
