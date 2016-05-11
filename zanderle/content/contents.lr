@@ -7,7 +7,12 @@ body:
 #### intro ####
 title: Text Introduction
 ----
-body: I am a full stack web developer with a passion for user experience. My background in mechanical engineering allows me to see software problems more broadly and how they relate to the product as a whole. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music.
+body:
+
+I am a full stack web developer with a passion for user experience. My background in mechanical engineering allows me to see software problems more broadly and how they relate to the product as a whole. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music.
+
+<img src="/static/zan.gif" alt="animation of me" style="max-width:100%"> <br/>
+<span class="image-label">Cool animation by <a href="http://pinkpin.tumblr.com/" target="_blank">Rachel Suen</a></span>
 ----
 selected: yes
 ----
@@ -53,9 +58,15 @@ selected:
 ----
 slug: code
 #### intro ####
-title: Shiny Introduction
+title: Data Introduction
 ----
-body: <div id="svg-wrap"></div>
+body:
+
+Some of the things I do. Represented visually.
+
+You can drag the nodes around. If you double click, it will take you to the project itself.
+
+<div id="svg-wrap"></div>
 ----
 selected: 
 ----

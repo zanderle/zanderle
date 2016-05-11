@@ -5,9 +5,15 @@ var outerWidth = document.querySelector('.tabs-content').offsetWidth;
 var width = outerWidth - 100; // For padding
 var height = Math.max(width, 300);
 
-var svg = d3.select("#svg-wrap").append("svg")
+var wrap = d3.select("#svg-wrap");
+
+var svg = wrap.append("svg")
     .attr("width", width)
     .attr("height", height);
+
+var tooltip = wrap.append('div')
+                .attr('role', 'tooltip')
+                .attr('aria-hidden', 'true');
 
 var unit = width * 0.05;
 
@@ -16,7 +22,7 @@ var sScale = d3.scale.linear()
                 .domain([0, 5]);
 
 var dScale = d3.scale.ordinal()
-                    .range([3, 5, 8, 10, 12])
+                    .range([3, 5, 8, 10, 13])
                     .domain([1, 2, 3, 4, 5]);
 
 var defs = svg.append('defs');
@@ -50,7 +56,7 @@ d3.json("../../data/intro-graph.json", function(error, json) {
 
     var inputNodes = json.nodes;
     
-    // inputNodes.map(function(el, i) { if (i < 4) { el.x = width / 2; el.y = height / 2; } return el; });
+    inputNodes.map(function(el, i) { if (i < 2) { el.x = width / 2; el.y = height / 2; } return el; });
 
     force
         .nodes(inputNodes)
@@ -138,11 +144,23 @@ function setLink(d, i) {
                             .style('stroke-width', 5);
             here.select('circle').transition().duration(200)
                             .attr('r', unit + 2);
+
+            tooltip.style('left', d.x + 'px')
+                .style('top', d.y + 'px')
+                .html(
+                    '<p>' +
+                    d.displayText +
+                    '</p>'
+                );
+            tooltip.transition().delay(600)
+                .attr('aria-hidden', 'false');
+
         }).on('mouseout', function() {
             here.select('circle').style('stroke', '#7D7F83')
                             .style('stroke-width', 2);
             here.select('circle').transition().duration(400)
                             .attr('r', unit);
+            tooltip.transition().attr('aria-hidden', 'true');
         }).on('dblclick', function() {
             var link = here.datum().url;
             window.open(link, "_blank");

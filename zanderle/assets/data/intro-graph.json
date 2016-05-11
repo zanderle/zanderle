@@ -1,15 +1,51 @@
 {
     "nodes": [
-    {"name": "zan", "type": "img", "img": "/data/img/portret.jpg", "size": "large", "url": ""},
-    {"name": "UX", "type": "icon", "iconCode": "\uf0c0", "text": "UX", "url": ""},
-    {"name": "web", "type": "icon", "iconCode": "\uf120", "text": "Dev", "url": ""},
-    {"name": "music", "type": "icon", "iconCode": "\uf001", "text": "Music", "url": ""},
-    {"name": "ux-medium", "type": "img", "img": "/data/img/medium.png", "size": "small", "url": "https://medium.com/@zanderle/user-experience-at-datafy-it-mistakes-made-and-lessons-learned-284f3cadc6e9"},
-    {"name": "datafy", "type": "img", "img": "/data/img/datafy.png", "size": "small", "url": "https://datafy.it"},
-    {"name": "musings-blog", "type": "img", "img": "/data/img/musings logo.png", "size": "small", "url": "http://musingsonmusic.com"},
-    {"name": "letters", "type": "img", "img": "/data/img/letters.png", "size": "small", "url": "http://letterstomy25yearoldself.com"},
-    {"name": "salonski", "type": "img", "img": "/data/img/salonski.png", "size": "small", "url": "https://salonski.bandcamp.com/"},
-    {"name": "louis-discography", "type": "img", "img": "/data/img/satchmo viz.png", "size": "small", "url": "http://musingsonmusic.com/2015/08/29/Louis-Armstrong-Discography/"}
+    {
+        "name": "zan", "displayText": "Hi! My name is Žan Anderle, and I am a full stack web developer",
+        "type": "img", "img": "/data/img/portret.jpg", "size": "large"
+    },
+    {
+        "name": "UX", "displayText": "",
+        "type": "icon", "iconCode": "\uf0c0", "text": "UX"
+    },
+    {
+        "name": "web", "displayText": "",
+        "type": "icon", "iconCode": "\uf120", "text": "Dev"
+    },
+    {
+        "name": "music", "displayText": "",
+        "type": "icon", "iconCode": "\uf001", "text": "Music"
+    },
+    {
+        "name": "ux-medium", "displayText": "UX at Datafy.it - Mistakes Made and Lessons Learned",
+        "type": "img", "img": "/data/img/medium.png",
+        "size": "small", "url": "https://medium.com/@zanderle/user-experience-at-datafy-it-mistakes-made-and-lessons-learned-284f3cadc6e9"
+    },
+    {
+        "name": "datafy", "displayText": "Software and UX developer at Datafy.it",
+        "type": "img", "img": "/data/img/datafy.png",
+        "size": "small", "url": "https://datafy.it"
+    },
+    {
+        "name": "musings-blog", "displayText": "My Musings on Music",
+        "type": "img", "img": "/data/img/musings logo.png",
+        "size": "small", "url": "http://musingsonmusic.com"
+    },
+    {
+        "name": "letters", "displayText": "Letters to My 25-Year-Old Self",
+        "type": "img", "img": "/data/img/letters.png",
+        "size": "small", "url": "http://letterstomy25yearoldself.com"
+    },
+    {
+        "name": "salonski", "displayText": "Salonski band",
+        "type": "img", "img": "/data/img/salonski.png",
+        "size": "small", "url": "https://salonski.bandcamp.com/"
+    },
+    {
+        "name": "louis-discography", "displayText": "Louis Armstrong Interactive Discography",
+        "type": "img", "img": "/data/img/satchmo viz.png",
+        "size": "small", "url": "http://musingsonmusic.com/2015/08/29/Louis-Armstrong-Discography/"
+}
     ],
     "links": [
     {"source": 0, "target": 1, "level": 2, "strength": 0.9, "show": true, "strokeWidth": 3},
@@ -34,6 +70,8 @@
     {"source": 1, "target": 9, "level": 2, "strength": 0.4, "show": true, "strokeWidth": 1},
     {"source": 3, "target": 9, "level": 2, "strength": 0.4, "show": true, "strokeWidth": 1},
     {"source": 8, "target": 6, "level": 1, "strength": 0.5, "show": false, "strokeWidth": 1},
-    {"source": 9, "target": 2, "level": 5, "strength": 0.5, "show": false, "strokeWidth": 1}
+    {"source": 9, "target": 2, "level": 5, "strength": 0.5, "show": false, "strokeWidth": 1},
+    {"source": 7, "target": 3, "level": 5, "strength": 0.5, "show": false, "strokeWidth": 1},
+    {"source": 5, "target": 3, "level": 5, "strength": 0.5, "show": false, "strokeWidth": 1}
     ]
 }
