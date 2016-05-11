@@ -5,7 +5,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     'app': './js/main.js',
-    'styles': './scss/main.scss'
+    'styles': './scss/main.scss',
+    'data-viz': './js/shiny.js'
   },
   output: {
     path: path.dirname(__dirname) + '/assets/static/gen',

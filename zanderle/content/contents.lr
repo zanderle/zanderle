@@ -53,7 +53,7 @@ slug: code
 #### intro ####
 title: Shiny Introduction
 ----
-body: Shiny viz
+body: <div id="svg-wrap"></div>
 ----
 selected: 
 ----
