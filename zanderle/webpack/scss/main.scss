@@ -407,3 +407,10 @@ blockquote {
     /* 35px / 24px */
   }
 }
+
+svg .node circle {
+  -webkit-transition: stroke-width 0.4s ease, stroke 0.2s ease;
+  -moz-transition: stroke-width 0.4s ease, stroke 0.2s ease;
+  -o-transition: stroke-width 0.4s ease, stroke 0.2s ease;
+  transition: stroke-width 0.4s ease, stroke 0.2s ease;
+}

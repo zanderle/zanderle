@@ -26,14 +26,14 @@ defs
     .attr('id', 'large-circle-clip')
     // .attr('clipPathUnits', 'objectBoundingBox')
     .append('circle')
-    .attr('r', 2 * unit);
+    .attr('r', 2 * unit - 2);
 
 defs
     .append('clipPath')
     .attr('id', 'small-circle-clip')
     // .attr('clipPathUnits', 'objectBoundingBox')
     .append('circle')
-    .attr('r', unit);
+    .attr('r', unit - 2);
 
 var force = d3.layout.force()
     .gravity(0.05)
@@ -50,7 +50,7 @@ d3.json("../../data/intro-graph.json", function(error, json) {
 
     var inputNodes = json.nodes;
     
-    inputNodes.map(function(el, i) { if (i < 4) { el.x = width / 2; el.y = height / 2; } return el; });
+    // inputNodes.map(function(el, i) { if (i < 4) { el.x = width / 2; el.y = height / 2; } return el; });
 
     force
         .nodes(inputNodes)
@@ -61,8 +61,8 @@ d3.json("../../data/intro-graph.json", function(error, json) {
                 .data(json.links)
                 .enter().append("line")
                 .attr("class", "link")
-                .style('stroke-width', function(d) { return d.show ? 2 : 0; })
-                .style('stroke', function(d) { return d.show ? 'black' : 'none'; });
+                .style('stroke-width', function(d) { return d.show ? d.strokeWidth : 0; })
+                .style('stroke', function(d) { return d.show ? '#7D7F83' : 'none'; });
 
     var node = svg.selectAll(".node")
                 .data(json.nodes)
@@ -71,6 +71,7 @@ d3.json("../../data/intro-graph.json", function(error, json) {
                 .call(force.drag);
 
     node.each(setContent);
+    d3.selectAll('.node').each(setLink);
 
     force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
@@ -90,28 +91,31 @@ function setContent(d, i) {
             .attr('r', (d.size == "large" ? 2 * unit : unit))
             .style('fill', 'white')
             .style('stroke-width', 2)
-            .style('stroke', 'black');
+            .style('stroke', '#7D7F83');
         here.append('image')
             .attr('xlink:href', d.img)
             .attr('x', (d.size == "large" ? -2 : -1) * unit)
             .attr('y', (d.size == "large" ? -2 : -1) * unit)
             .attr('width', (d.size == "large" ? 4 : 2) * unit)
             .attr('height', (d.size == "large" ? 4 : 2) * unit)
+            .attr('preserveAspectRatio', 'xMidYMid slice')
             .attr('clip-path', d.size == "large" ? 'url(#large-circle-clip)' : 'url(#small-circle-clip)');
     } else if (d.type == "icon") {
         // do that
         here.append('circle')
-            .style('stroke-width', 3)
-            .style('stroke', 'black')
+            .style('stroke-width', 4)
+            .style('stroke', '#7D7F83')
             .style('fill', 'white')
             .attr('r', unit * 1.1);
         here.append('text')
             .text(d.iconCode)
             .style('font-size', unit)
+            .style('fill', '#7D7F83')
             .style('text-anchor', 'middle')
             .style('font-family', 'FontAwesome');
         here.append('text')
             .text(d.text)
+            .style('fill', '#7D7F83')
             .style('font-size', unit/2 - unit/10)
             .attr('y', unit/2 + unit/10)
             .style('text-anchor', 'middle');
@@ -119,8 +123,29 @@ function setContent(d, i) {
         // do it like that
         here.append('circle')
             .style('stroke-width', function () { return 2 + i; })
-            .style('stroke', 'black')
-            .style('fill', 'red')
+            .style('stroke', '#7D7F83')
+            .style('fill', 'white')
             .attr('r', unit);
+    }
+}
+
+function setLink(d, i) {
+    var here = d3.select(this);
+
+    if (d.type=="img" && d.size!="large") {
+        here.on('mouseover', function() {
+            here.select('circle').style('stroke', '#616367')
+                            .style('stroke-width', 5);
+            here.select('circle').transition().duration(200)
+                            .attr('r', unit + 2);
+        }).on('mouseout', function() {
+            here.select('circle').style('stroke', '#7D7F83')
+                            .style('stroke-width', 2);
+            here.select('circle').transition().duration(400)
+                            .attr('r', unit);
+        }).on('dblclick', function() {
+            var link = here.datum().url;
+            window.open(link, "_blank");
+        });
     }
 }
