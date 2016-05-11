@@ -1,13 +1,19 @@
 title: Datafy.it
 ---
-body: Longer lorem ipsum
+body:
+
+Software and UX developer at Datafy.it.
+
+Datafy.it is a big data search engine for business contacts.
 ---
 date: 2013-01-12
 ---
 excerpt:
 
-Software and UX developer.
+Software and UX developer at Datafy.it.
 
 Datafy.it is a big data search engine for business contacts.
 ---
 website: https://datafy.it
+---
+sort_key: 1

@@ -1,29 +1,19 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.title }} ({{ this.date.year }}){% endblock %}
 {% block body %}
-  <h1>{{ this.title }}</h1>
-  <dl>
-    <dt>Date
-    <dd>{{ this.date|dateformat }}
-    {% if this.website %}
-    <dt>Website
-    <dd><a href="{{ this.website }}">{{ this.website.host }}</a>
-    {% endif %}
-  </dl>
+  <h1><a href="{{ this.website }}">{{ this.title }}</a></h1>
+
   {% set images = this.attachments.images.all() %}
+  <div class="pure-g">
   {% if images %}
-    <h2>Images</h2>
-    {% for image in images %}
-      <div class="image">
-        <img src="{{ image.thumbnail(640)|url }}" alt="">
-        {% if image.exif %}
-        <p class=meta>
-          {{ image.exif.camera }}
-          {% if image.exif.created_at %}
-            ({{ image.exif.created_at|dateformat }})
-          {% endif %}
-        {% endif %}
+      <div class="panel-content pure-u-2-5">
+        {% for image in images %}
+            <img src="{{ image.thumbnail(640)|url }}" alt="{{ this.title }}" class="pure-img">
+        {% endfor %}
       </div>
-    {% endfor %}
   {% endif %}
+      <div class="panel-content pure-u-3-5">
+        <p>{{ this.excerpt }}</p>
+      </div>
+  </div>
 {% endblock %}
