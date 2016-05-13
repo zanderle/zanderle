@@ -16,6 +16,7 @@ var tooltip = wrap.append('div')
                 .attr('aria-hidden', 'true');
 
 var unit = width * 0.05;
+var smallUnit = unit * 0.8;
 
 var sScale = d3.scale.linear()
                 .range([1, 0.05])
@@ -112,18 +113,18 @@ function setContent(d, i) {
             .style('stroke-width', 4)
             .style('stroke', '#7D7F83')
             .style('fill', 'white')
-            .attr('r', unit * 1.1);
+            .attr('r', smallUnit * 1.1);
         here.append('text')
             .text(d.iconCode)
-            .style('font-size', unit)
+            .style('font-size', smallUnit)
             .style('fill', '#7D7F83')
             .style('text-anchor', 'middle')
             .style('font-family', 'FontAwesome');
         here.append('text')
             .text(d.text)
             .style('fill', '#7D7F83')
-            .style('font-size', unit/2 - unit/10)
-            .attr('y', unit/2 + unit/10)
+            .style('font-size', smallUnit/2 - smallUnit/10)
+            .attr('y', smallUnit/2 + smallUnit/10)
             .style('text-anchor', 'middle');
     } else {
         // do it like that
