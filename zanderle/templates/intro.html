@@ -1,17 +1,23 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
-    <h1>{{ this.title }}</h1>
+    {% for block in this.body.blocks if not block.panel %}
+    {{ block.body }}
+    {% endfor %}
     <div class="tabs-area">
         <nav>
             <ul role="tablist">
-                {% for block in this.body.blocks %}
-                <li><a href="#block-{{ block.slug }}" role="tab" {% if block.selected %}aria-selected=true{% endif %}>{{ block.title }}</a></li>
+                {% for block in this.body.blocks if block.panel %}
+                <li><a href="#block-{{ block.slug }}" role="tab" {% if loop.index == 1 %}aria-selected=true{% endif %}>{{ block.title }}</a></li>
                 {% endfor %}
             </ul>
         </nav>
         <div class="tabs-content">
-            {{ this.body }}
+            {% for block in this.body.blocks if block.panel%}
+            <div role="tabpanel" {% if loop.index == 1 %}aria-expanded=true{% endif %} class="block-{{ block.slug }}">
+                {{ block.body }}
+            </div>
+            {% endfor %}
         </div>
     </div>
     <script type="text/javascript" src="{{ '/static/gen/data-viz.js'|asseturl }}"></script>

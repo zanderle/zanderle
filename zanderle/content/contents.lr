@@ -9,12 +9,21 @@ title: Text Introduction
 ----
 body:
 
-I am a full stack web developer with a passion for user experience. My background in mechanical engineering allows me to see software problems more broadly and how they relate to the product as a whole. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music.
-
-<img src="/static/zan.gif" alt="animation of me" style="max-width:100%"> <br/>
+<div class="pure-g">
+<div class="pure-u-2-5">
+<img src="/static/zan.gif" alt="animation of me" class="pure-img">
 <span class="image-label">Cool animation by <a href="http://pinkpin.tumblr.com/" target="_blank">pinkpin</a></span>
+</div>
+<div class="pure-u-3-5">
+<h1 style="margin-top: 0;">Hi!</h1>
+<p>My name is Žan Anderle and I am a full stack web developer with a passion for user experience. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music, having a good beer or playing board games.
+</p>
+</div>
+</div>
+
+<br/>
 ----
-selected: yes
+panel: 
 ----
 slug: text
 #### intro ####
@@ -32,13 +41,13 @@ from .models import FullStackWebDeveloper
 from .techs import django, python, d3js
 
 zanderle = FullStackWebDeveloper.objects.create(
-    name = "Žan Anderle",
-    ux_developer = True,
-    background = "MechE",
-    friendly = True,
-    community = True,
-    github = "https://github.com/zanderle",
-    twitter = "https://twitter.com/z_anderle"
+    name="Žan Anderle",
+    ux_developer=True,
+    background="MechE",
+    friendly=True,
+    community=True,
+    github="https://github.com/zanderle",
+    twitter="https://twitter.com/z_anderle"
 )
 zanderle.save()
 zanderle.techs.add(django, python, d3js)
@@ -54,7 +63,7 @@ zanderle.interests.add(music, dataviz)
 
 ```
 ----
-selected: 
+panel: yes
 ----
 slug: code
 #### intro ####
@@ -68,6 +77,6 @@ You can drag the nodes around. If you double click, it will take you to the proj
 
 <div id="svg-wrap"></div>
 ----
-selected: 
+panel: yes
 ----
 slug: data

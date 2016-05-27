@@ -38,6 +38,8 @@ $grey-secondary-2-4: #433D39;
 
 $footer-height: 22px;
 
+$menu-breakpoint: 865px;
+
 @import url(https://fonts.googleapis.com/css?family=Cutive+Mono|Open+Sans:400,300,700,400italic&subset=latin-ext);
 
 @mixin border-radius($radius) {
@@ -123,7 +125,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: $grey-primary-3;
+    color: $grey-primary-2;
 }
 
 a {
@@ -161,32 +163,51 @@ main {
     background-color: white;
     height: 131px;
 
+    @media (max-width: $menu-breakpoint) {
+      height: 162px;
+    }
+
     > div {
         max-width: 976px;
         padding: 0 2%;
         margin: 0 auto;
     }
-
-    h1 {
-        display: inline-block;
-        padding: 20px 0 0;
-        // font-size: 2.1em;
-        font-family: 'Cutive Mono', monospace;
-        margin-bottom: 0;
+    [role="heading"] {
+      display: inline-block;
+      @media (max-width: $menu-breakpoint) {
+        display: block;
+        text-align: center;
+      }
+      h1 {
+          display: block;
+          padding: 20px 0 0;
+          // font-size: 2.1em;
+          font-family: 'Cutive Mono', monospace;
+          margin-bottom: 0;
+          @media (max-width: $menu-breakpoint) {
+            margin-top: 0;
+            padding-top: 5px;
+          }
+      }
+      h2 {
+          display: block;
+          font-family: monospace;
+          margin: 2px 0 8px 0px;
+          font-weight: 400;
+          font-size: 1.2em;
+          color: $grey-primary-1;
+      }
     }
-    h2 {
-        font-family: monospace;
-        margin: 2px 0 8px 0px;
-        font-weight: 400;
-        font-size: 1.2em;
-        color: $grey-primary-1;
-    }
 
-    nav,
-    [role="navigation"] {
+    nav {
         float: right;
         margin: 40px 0;
         margin-bottom: 5px;
+        @media (max-width: $menu-breakpoint) {
+          margin-top: 5px;
+          float: none;
+          text-align: center;
+        }
         ul {
             margin: 0;
             padding: 0;
@@ -197,8 +218,11 @@ main {
                     text-align: center;
                     display: inline-block;
                     padding: 15px 25px;
+                    @media (max-width: $menu-breakpoint) {
+                      padding: 15px 10px;
+                    }
                     padding-bottom: 10px;
-                    color: $grey-primary-0;
+                    color: $color-primary-1;
                     border-color: $grey-primary-0;
                     -webkit-transition: color 0.3s linear, padding 0.3s ease-out;
                     -moz-transition: color 0.3s linear, padding 0.3s ease-out;
@@ -211,11 +235,14 @@ main {
                     &[aria-expanded="true"]:focus,
                     &[aria-expanded="true"]:active {
                         padding-bottom: 22px;
+                        @media (max-width: $menu-breakpoint) {
+                          padding-bottom: 10px;
+                        }
                         color: $color-secondary-2-2;
                         border-bottom: 4px solid $color-secondary-2-0;
                     }
                     &[aria-expanded="true"] {
-                        color: $color-secondary-2-4;
+                        color: $color-primary-3;
                     }
                 }
             }
@@ -224,7 +251,7 @@ main {
 }
 
 .image-label {
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: $grey-primary-1;
 }
 
@@ -254,13 +281,13 @@ main {
 
 .tabs-area {
     [role="tab"][aria-selected=true] {
-        background-color: white;
+        background-color: none;
     }
     .tabs-content {
-    background-color: white;
-        border: 1px solid $grey-primary-1;
+    background-color: none;
+        border-top: 1px solid $grey-primary-1;
         padding: 15px 50px 30px;
-        @include border-bottom-radius(5px);
+        // @include border-bottom-radius(5px);
     }
 }
 
