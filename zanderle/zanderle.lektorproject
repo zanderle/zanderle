@@ -4,6 +4,7 @@ name = zanderle
 [packages]
 lektor-markdown-highlighter = 0.1
 lektor-webpack-support = 0.1
+lektor-disqus-comments = 0.1
 
 [servers.production]
 name = Production
