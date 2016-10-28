@@ -4,6 +4,22 @@
     <link href="{{ '/bower_components/pace/themes/silver/pace-theme-minimal.css'|asseturl }}" rel="stylesheet" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block description %}Žan Anderle; a full stack web developer with a passion for user experience{% endblock %}">
+    <meta name="author" content="Žan Anderle">
+
+    <!-- Social Meta Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@z_anderle" />
+    <meta name="twitter:title" content="{{ self.title() }} — zanderle" />
+    <meta name="twitter:description" content="{% block meta_description %}{{ self.description() }}{% endblock %}" />
+    <!-- <meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" /> -->
+
+    <meta property="og:url" content="{{ this.url_to(this.url_path, external=True) }}" />
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
+    <meta property="og:title" content="{{ self.title() }} — zanderle" />
+    <meta property="og:description" content="{{ self.meta_description() }}" />
+    <!-- <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" /> -->
+
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&pure/0.6.0/grids-min.css&pure/0.6.0/grids-responsive-old-ie-min.css">
     <![endif]-->

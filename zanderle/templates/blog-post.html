@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
+{% block og_type %}article{% endblock %}
 {% block title %}{{ this.title }} | Musings{% endblock %}
+{% block meta_description %}{% if this.meta_description %}{{ this.meta_description }}{% else %}A blog by Žan Anderle. Some musings on tech, music and everything in between.{% endif %}{% endblock %}
 {% block body %}
   <a href="{{ '/musings'|url }}">&lt; Just Some Musings</a>
   <article>

@@ -1,5 +1,6 @@
 [project]
 name = zanderle
+url = http://zanderle.com
 
 [packages]
 lektor-markdown-highlighter = 0.1
