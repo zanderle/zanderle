@@ -9,7 +9,7 @@
       <h1>{{ this.title }}</h1>
       <time datetime="{{ this.pub_date }}"> — {{ this.pub_date|dateformat('full') }}</time>
     </header>
-    <div>{{ this.body }}</div>
+    <div class="blog-post-body">{{ this.body }}</div>
     <div class="comments">{{ render_disqus_comments() }}</div>
   </article>
 {% endblock %}

@@ -17,6 +17,9 @@
           <a href="{{ post|url }}">{{ post.title }}</a><time datetime="{{ post.pub_date }}"> — {{ post.pub_date|dateformat }}</time>
           <br/>
           {{ post.excerpt }}
+          <p>
+            <a href="{{ post|url }}">Read more...</a>
+          </p>
         </li>
       {% endfor %}
       </ul>

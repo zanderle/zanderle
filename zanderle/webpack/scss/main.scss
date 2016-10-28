@@ -187,10 +187,20 @@ main {
     time {
       color: $grey-primary-2;
     }
-    article header {
-      time {
-        position: relative;
-        top: -15px;
+    article {
+      @media (min-width: 43.75em) {
+        max-width: 85%;
+      }
+      max-width: 98%;
+      margin: auto;
+      header {
+        time {
+          position: relative;
+          top: -15px;
+        }
+      }
+      .comments {
+        margin-top: 50px;
       }
     }
     .blog-index nav {
@@ -214,21 +224,21 @@ main {
           @media (min-width: 56.25em) {
             padding-bottom: 20px;
           }
-        }
-        a {
-          font-size: $h3-sm-font-size;
-          line-height: $h3-sm-line-height;
-        }
-        @media (min-width: 43.75em) {
-          a {
-            font-size: $h3-md-font-size;
-            line-height: $h3-md-line-height;
+          > a {
+            font-size: $h3-sm-font-size;
+            line-height: $h3-sm-line-height;
           }
-        }
-        @media (min-width: 56.25em) {
-          a {
-            font-size: $h3-lg-font-size;
-            line-height: $h3-lg-line-height;
+          @media (min-width: 43.75em) {
+            > a {
+              font-size: $h3-md-font-size;
+              line-height: $h3-md-line-height;
+            }
+          }
+          @media (min-width: 56.25em) {
+            > a {
+              font-size: $h3-lg-font-size;
+              line-height: $h3-lg-line-height;
+            }
           }
         }
       }
@@ -417,6 +427,22 @@ main {
     font-size: 1em;
     /* equivalent to 16px */
     line-height: 1.375;
+    /* equivalent to 22px */
+  }
+}
+
+main article .blog-post-body p {
+  font-size: 1.05em;
+  /* equivalent to 16px */
+  line-height: 1.5;
+  /* equivalent to 20px */
+}
+
+@media (min-width: 43.75em) {
+  main article .blog-post-body p {
+    font-size: 1.1em;
+    /* equivalent to 16px */
+    line-height: 1.6;
     /* equivalent to 22px */
   }
 }
