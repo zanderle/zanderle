@@ -1,0 +1,12 @@
+title: Your Year in Books
+---
+body:
+
+<div id="svg-wrap" class="goodreads-viz"></div>
+<script type="text/javascript" src="/static/gen/goodreads-viz.js"></script>
+---
+excerpt: See what and when you've been reading this year. An interactive visualization of the books read, based on the Goodreads data.
+---
+meta_description: See what and when you've been reading this year. An interactive visualization of the books read, based on the Goodreads data.
+---
+pub_date: 2016-11-10

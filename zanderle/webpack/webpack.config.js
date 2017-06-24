@@ -6,7 +6,8 @@ module.exports = {
   entry: {
     'app': './js/main.js',
     'styles': './scss/main.scss',
-    'data-viz': './js/shiny.js'
+    'data-viz': './js/shiny.js',
+    'goodreads-viz': './js/goodreads-viz.js'
   },
   output: {
     path: path.dirname(__dirname) + '/assets/static/gen',

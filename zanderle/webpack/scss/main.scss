@@ -311,6 +311,9 @@ main {
                     @media (max-width: $menu-breakpoint) {
                       padding: 15px 10px;
                     }
+                    @media (max-width: 43.75em) {
+                      padding: 15px 1px;
+                    }
                     padding-bottom: 10px;
                     color: $color-primary-1;
                     border-color: $grey-primary-0;
@@ -565,5 +568,21 @@ blockquote {
     -moz-transition: stroke-width 0.4s ease, stroke 0.2s ease;
     -o-transition: stroke-width 0.4s ease, stroke 0.2s ease;
     transition: stroke-width 0.4s ease, stroke 0.2s ease;
+  }
+}
+
+#svg-wrap.goodreads-viz {
+  .axis {
+    path {
+      fill: none;
+      stroke: #ccc;
+    }
+    line {
+      fill: none;
+      stroke: #ccc;
+    }
+    .tick text {
+      fill: $grey-primary-0;
+    }
   }
 }
