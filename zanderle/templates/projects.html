@@ -2,6 +2,7 @@
 {% block title %}Projects{% endblock %}
 {% block body %}
   <h1>Projects</h1>
+  <h4>Some of the current and previous gigs/projects</h4>
   <ul class="panel-list">
   {% for project in this.children %}
     <li class="pure-g">
@@ -14,6 +15,13 @@
       <div class="panel-content pure-u-3-5">
         <h2><a href="{{ project.website }}" target="_blank">{{ project.title }}</a></h2>
         <p>{{ project.excerpt }}</p>
+        {% if project.tags %}
+        <ul class="tags-list">
+          {% for tag in project.tags %}
+          <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
       </div>
     </li>
   {% endfor %}

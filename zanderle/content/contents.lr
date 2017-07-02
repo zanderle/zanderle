@@ -16,7 +16,7 @@ body:
 </div>
 <div class="pure-u-3-5">
 <h1 style="margin-top: 0;">Hi!</h1>
-<p>My name is Žan Anderle and I am a full stack web developer with a passion for user experience. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music, having a good beer or playing board games.
+<p>My name is Žan and I am a full stack web developer with a passion for user experience. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music, having a good beer or playing board games.
 </p>
 </div>
 </div>
@@ -38,7 +38,7 @@ print("Hi!")
 # Create zanderle object
 
 from .models import FullStackWebDeveloper
-from .techs import django, python, d3js
+from .techs import django, python, angular, d3js
 
 zanderle = FullStackWebDeveloper.objects.create(
     name="Žan Anderle",
@@ -50,7 +50,7 @@ zanderle = FullStackWebDeveloper.objects.create(
     twitter="https://twitter.com/z_anderle"
 )
 zanderle.save()
-zanderle.techs.add(django, python, d3js)
+zanderle.techs.add(django, python, angular, d3js)
 music = Interest.objects.create(
     name="Music",
     resources={'blog': 'http://musingsonmusic.com', 'band': 'http://salonski.tumblr.com/'}

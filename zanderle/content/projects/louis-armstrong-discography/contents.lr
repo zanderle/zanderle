@@ -7,3 +7,10 @@ date: 2015-01-06
 excerpt: A visualization of all sessions that comprise Louis Armstrong’s discography. He is my all-time hero, and I wanted to explore his discography in a way that hasn't been done before.
 ---
 website: http://musingsonmusic.com/2015/08/29/Louis-Armstrong-Discography/
+---
+tags:
+
+D3.js
+Music
+---
+sort_key: 4
