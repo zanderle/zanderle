@@ -16,7 +16,7 @@ body:
 </div>
 <div class="pure-u-3-5">
 <h1 style="margin-top: 0;">Hi!</h1>
-<p>My name is Žan and I am a full stack web developer with a passion for user experience. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music, having a good beer or playing board games.
+<p>My name is Žan and I am a freelance full stack web developer with a passion for user experience. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music, having a good beer or playing board games.
 </p>
 </div>
 </div>
@@ -43,7 +43,7 @@ from .techs import django, python, angular, d3js
 zanderle = FullStackWebDeveloper.objects.create(
     name="Žan Anderle",
     ux_developer=True,
-    background="MechE",
+    background="MechE, M.S. CS",
     friendly=True,
     community=True,
     github="https://github.com/zanderle",

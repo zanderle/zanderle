@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
-{% block title %}Projects{% endblock %}
+{% block title %}Work{% endblock %}
 {% block body %}
-  <h1>Projects</h1>
-  <h4>Some of the current and previous gigs/projects</h4>
+  <h1>Work</h1>
+  {{ this.body }}
+  <h4>Some of my current and previous clients and projects</h4>
   <ul class="panel-list">
   {% for project in this.children %}
     <li class="pure-g">

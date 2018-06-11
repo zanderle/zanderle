@@ -22,7 +22,7 @@
         "size": "small", "url": "https://medium.com/@zanderle/user-experience-at-datafy-it-mistakes-made-and-lessons-learned-284f3cadc6e9"
     },
     {
-        "name": "datafy", "displayText": "Software and UX developer at Datafy.it",
+        "name": "datafy", "displayText": "Ex-Software and UX developer at Datafy.it",
         "type": "img", "img": "/data/img/datafy.png",
         "size": "small", "url": "https://datafy.it"
     },
@@ -45,7 +45,12 @@
         "name": "louis-discography", "displayText": "Louis Armstrong Interactive Discography",
         "type": "img", "img": "/data/img/satchmo viz.png",
         "size": "small", "url": "http://musingsonmusic.com/2015/08/29/Louis-Armstrong-Discography/"
-}
+    },
+    {
+        "name": "openairplane", "displayText": "OpenAirplane and FlyOtto",
+        "type": "img", "img": "/data/img/open_airplane.png",
+        "size": "small", "url": "https://www.openairplane.com/"
+    }
     ],
     "links": [
     {"source": 0, "target": 1, "level": 2, "strength": 0.9, "show": true, "strokeWidth": 5},
@@ -60,6 +65,7 @@
     {"source": 0, "target": 7, "level": 4, "strength": 0.3, "show": false, "strokeWidth": 1},
     {"source": 0, "target": 8, "level": 4, "strength": 0.3, "show": false, "strokeWidth": 1},
     {"source": 0, "target": 9, "level": 4, "strength": 0.3, "show": false, "strokeWidth": 1},
+    {"source": 0, "target": 10, "level": 4, "strength": 0.3, "show": false, "strokeWidth": 1},
     {"source": 1, "target": 4, "level": 2, "strength": 0.3, "show": true, "strokeWidth": 1},
     {"source": 1, "target": 5, "level": 2, "strength": 0.1, "show": true, "strokeWidth": 1},
     {"source": 2, "target": 5, "level": 2, "strength": 0.1, "show": true, "strokeWidth": 1},
@@ -72,6 +78,7 @@
     {"source": 8, "target": 6, "level": 1, "strength": 0.5, "show": false, "strokeWidth": 1},
     {"source": 9, "target": 2, "level": 5, "strength": 0.5, "show": false, "strokeWidth": 1},
     {"source": 7, "target": 3, "level": 5, "strength": 0.5, "show": false, "strokeWidth": 1},
-    {"source": 5, "target": 3, "level": 5, "strength": 0.5, "show": false, "strokeWidth": 1}
+    {"source": 5, "target": 3, "level": 5, "strength": 0.5, "show": false, "strokeWidth": 1},
+    {"source": 10, "target": 2, "level": 1, "strength": 0.5, "show": true, "strokeWidth": 1}
     ]
 }
