@@ -12,11 +12,12 @@ body:
 <div class="pure-g">
 <div class="pure-u-2-5">
 <img src="/static/zan.gif" alt="animation of me" class="pure-img">
-<span class="image-label">Cool animation by <a href="http://pinkpin.tumblr.com/" target="_blank">pinkpin</a></span>
+<span class="image-label">My cool avatar by <a href="http://pinkpin.tumblr.com/" target="_blank">pinkpin</a></span>
 </div>
 <div class="pure-u-3-5">
 <h1 style="margin-top: 0;">Hi!</h1>
-<p>My name is Žan and I am a freelance full stack web developer with a passion for user experience. I’ve done extensive work with Django and Python. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community. When I’m not coding, I’m immersed in music, having a good beer or playing board games.
+<p>My name is Žan and I am a consultant and a full stack web engineer with a passion for user experience. I'm most proficient in Django, Python and Angular. I always strive for elegant code and excellent products, and deeply care about users, coworkers, and the community.</p>
+<p>When I’m not coding, I enjoy spending time with my SO and our son. When he's busy though (as 1-year-olds usually are), I'm immersed in music, having a good beer or playing board games. Or any combination of the three.
 </p>
 </div>
 </div>
