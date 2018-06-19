@@ -425,6 +425,41 @@ ul.panel-list {
     }
 }
 
+.text-center {
+  text-align: center;
+}
+
+span.text-bottom {
+  position: relative;
+  top: 25%;  
+}
+
+.block-button {
+  padding: 20px 10px;
+  margin-left: -10px;
+  background-color: white;
+  width: 100%;
+  display: block;
+  @include border-radius(5px);
+  border: 1px dashed $grey-primary-0;
+  text-decoration: none;
+  font-weight: 600;
+
+  -webkit-transition: color 0.3s linear, padding 0s ease-out, border 0s ease-out;
+  -moz-transition: color 0.3s linear, padding 0s ease-out, border 0s ease-out;
+  -o-transition: color 0.3s linear, padding 0s ease-out, border 0s ease-out;
+  transition: color 0.3s linear, padding 0s ease-out, border 0s ease-out;
+  &:hover {
+    border-bottom: 4px solid $color-secondary-2-0;
+    padding-bottom: 16px;
+    color: $color-secondary-2-0;
+    -webkit-transition: color 0.3s linear, padding 0.3s ease-out, border 0.3s ease-out;
+    -moz-transition: color 0.3s linear, padding 0.3s ease-out, border 0.3s ease-out;
+    -o-transition: color 0.3s linear, padding 0.3s ease-out, border 0.3s ease-out;
+    transition: color 0.3s linear, padding 0.3s ease-out, border 0.3s ease-out;
+  }
+}
+
 body {
   font-size: 100%;
 }

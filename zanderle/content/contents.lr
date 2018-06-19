@@ -21,6 +21,18 @@ body:
 </p>
 </div>
 </div>
+<div class="pure-g text-center">
+<div class="pure-u-1 pure-u-md-1-5"></div>
+<div class="pure-u-2-5 pure-u-md-1-5">
+<a href="/work" class="block-button">See my work</a>
+</div>
+<div class="pure-u-1-5">
+<span class="text-bottom">OR</span>
+</div>
+<div class="pure-u-2-5 pure-u-md-1-5">
+<a href="/hire" class="block-button">See what I offer</a>
+</div>
+</div>
 
 <br/>
 ----
