@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.title }} ({{ this.date.year }}){% endblock %}
 {% block body %}
-  <h1><a href="{{ this.website }}">{{ this.title }}</a></h1>
+  <h1>{{ this.title }}</h1>
 
   {% set images = this.attachments.images.all() %}
   <div class="pure-g">

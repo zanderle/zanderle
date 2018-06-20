@@ -1,10 +1,22 @@
-title: K2M
+_model: client
+---
+title: K2M - BACS
 ---
 date: 2018-5-5
 ---
-excerpt: Working with K2M on BACS project.
+excerpt:
+
+"Žan is truly a collaborative member of the team. He often mentors other members of the team without being prompted. His range of expertise and willingness to share has made him a tremendous asset to the BACS engineering team."
+
+Shawn Inman, BACS lead engineer
+
+Working with K2M on BACS platform.
+
+- Working with a remote team of about half a dozen developers
+- Developing new features (both frontend and backend) in a clean and reusable way
+- Refactoring legacy parts of the project
 ---
-sort_key: 3
+sort_key: 1
 ---
 tags:
 
@@ -12,3 +24,17 @@ Django
 DRF
 ---
 website: http://www.bacs.com
+---
+body:
+
+BACS is a comprehensive platform that applies three-dimensional solutions across the entire clinical care continuum to help drive quality outcomes for spine patients.
+
+- Working with a remote team of about half a dozen developers
+- Developing new features (both frontend and backend) in a clean and reusable way
+- Refactoring legacy parts of the project
+
+"Žan is truly a collaborative member of the team. He often mentors other members of the team without being prompted. His range of expertise and willingness to share has made him a tremendous asset to the BACS engineering team."
+
+Shawn Inman, BACS lead engineer
+---
+show_details: yes

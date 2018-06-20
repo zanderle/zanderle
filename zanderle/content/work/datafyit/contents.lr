@@ -1,10 +1,8 @@
+_model: client
+---
 title: Datafy.it
 ---
-body:
-
-Software and UX developer at Datafy.it.
-
-Datafy.it is a big data search engine for business contacts.
+body: 
 ---
 date: 2013-01-12
 ---
@@ -12,7 +10,7 @@ excerpt:
 
 Software and UX developer at Datafy.it.
 
-Datafy.it is a big data search engine for business contacts.
+I worked on Datafy.it search engine for business contacts. The work involved building a big Django application, working with a team of 3 other developers and developing the UX of the product (doing interviews, need-finding, prototyping, etc).
 ---
 website: https://datafy.it
 ---
@@ -22,4 +20,7 @@ tags:
 
 UX
 Django
+DRF
 Python
+---
+show_details: no
