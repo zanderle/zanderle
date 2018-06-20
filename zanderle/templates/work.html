@@ -16,11 +16,11 @@
     <li class="pure-g">
       {% set image = client.attachments.images.first() %}
       {% if image %}
-      <div class="pure-u-2-5">
+      <div class="pure-u-1 pure-u-sm-2-5">
         <img src="{{ image.thumbnail(640)|url }}" alt="{{ client.title }} image" class="pure-img">
       </div>
       {% endif %}
-      <div class="panel-content pure-u-3-5">
+      <div class="panel-content pure-u-1 pure-u-sm-3-5">
         <h3>{{ client.title }}</h3>
         <p>{{ client.excerpt }}</p>
 
@@ -52,11 +52,11 @@
     <li class="pure-g">
       {% set image = project.attachments.images.first() %}
       {% if image %}
-      <div class="pure-u-2-5">
+      <div class="pure-u-1 pure-u-sm-2-5">
         <img src="{{ image.thumbnail(640)|url }}" alt="{{ project.title }} image" class="pure-img">
       </div>
       {% endif %}
-      <div class="panel-content pure-u-3-5">
+      <div class="panel-content pure-u-1 pure-u-sm-3-5">
         <h3>{{ project.title }}</h3>
         <p>{{ project.excerpt }}</p>
         {% if project.website %}
