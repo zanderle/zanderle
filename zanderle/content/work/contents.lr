@@ -6,9 +6,15 @@ _slug:
 ---
 body:
 
-I am a freelancer working as a full stack web developer. I work with clients to either:
+Here's a collection of some of my clients and some of the things I do as a full stack web engineer.
 
-- work with their team on an existing project 
-- work with them to develop their idea from scratch.
+The tools I enjoy working with are Python, Django, Django REST Framework, Typescript, Angular, and D3.
 
-Feel free to contact me at zan.anderle at gmail.com or Twitter, as I am available for hire and would love to discuss your project.
+Besides doing consulting work and coding, I love teaching/mentoring and speaking at conferences.
+---
+block:
+
+#### work ####
+title: Projects
+----
+body: Some projects

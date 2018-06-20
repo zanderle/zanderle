@@ -2,10 +2,53 @@
 {% block title %}Work{% endblock %}
 {% block body %}
   <h1>Work</h1>
+  <nav class="page-navigation">
+    <ul>
+      <li><a href="#selected-clients">Selected Clients</a></li>
+      <li><a href="#side-projects">Side Projects</a></li>
+    </ul>
+  </nav>
+  
   {{ this.body }}
-  <h4>Some of my current and previous clients and projects</h4>
+  <h2 id="selected-clients">Selected Clients</h2>
   <ul class="panel-list">
-  {% for project in this.children %}
+  {% for client in this.children|selectattr('_model', 'equalto', 'client') %}
+    <li class="pure-g">
+      {% set image = client.attachments.images.first() %}
+      {% if image %}
+      <div class="pure-u-2-5">
+        <img src="{{ image.thumbnail(640)|url }}" alt="{{ client.title }} image" class="pure-img">
+      </div>
+      {% endif %}
+      <div class="panel-content pure-u-3-5">
+        <h3>{{ client.title }}</h3>
+        <p>{{ client.excerpt }}</p>
+
+        {% if client.website %}
+          <p>
+            <a href="{{client.website}}">Client's website &nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
+          </p>
+        {% endif %}
+        {% if client.show_details %}
+          <p>
+            <a href="{{client._slug}}">Read more...</a>
+          </p>
+        {% endif %}
+        {% if client.tags %}
+        <ul class="tags-list">
+          {% for tag in client.tags %}
+          <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+
+  <h2 id="side-projects">Side Projects</h2>
+  <ul class="panel-list">
+  {% for project in this.children|selectattr('_model', 'equalto', 'project') %}
     <li class="pure-g">
       {% set image = project.attachments.images.first() %}
       {% if image %}
@@ -14,8 +57,18 @@
       </div>
       {% endif %}
       <div class="panel-content pure-u-3-5">
-        <h2><a href="{{ project.website }}" target="_blank">{{ project.title }}</a></h2>
+        <h3>{{ project.title }}</h3>
         <p>{{ project.excerpt }}</p>
+        {% if project.website %}
+          <p>
+            <a href="{{project.website}}">Project website &nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
+          </p>
+        {% endif %}
+        {% if project.show_details %}
+          <p>
+            <a href="{{project._slug}}">Read more...</a>
+          </p>
+        {% endif %}
         {% if project.tags %}
         <ul class="tags-list">
           {% for tag in project.tags %}
