@@ -18,13 +18,17 @@
     <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
     <meta property="og:title" content="{{ self.title() }} — zanderle" />
     <meta property="og:description" content="{{ self.meta_description() }}" />
-    <!-- <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" /> -->
+    <!-- <meta property="og:image" content="https://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" /> -->
 
     <!--[if lte IE 8]>
-        <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&pure/0.6.0/grids-min.css&pure/0.6.0/grids-responsive-old-ie-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.6.0/base-min.css&pure/0.6.0/grids-min.css&pure/0.6.0/grids-responsive-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
     <!--<![endif]-->
 
     {% include "favicon.html" %}

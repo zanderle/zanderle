@@ -508,6 +508,14 @@ main article .blog-post-body p {
   /* equivalent to 20px */
 }
 
+main article .blog-post-body img {
+  width: 80%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 @media (min-width: 43.75em) {
   main article .blog-post-body p {
     font-size: 1.1em;
