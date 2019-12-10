@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}Workshops and trainings{% endblock %}
+{% block body %}
+  <h1>Workshops and trainings</h1>
+  
+  {{ this.body }}
+  <h2 id="selected-clients">Previous workshops</h2>
+  <ul class="panel-list">
+  {% for project in this.children|selectattr('_model', 'equalto', 'project') %}
+    <li class="pure-g">
+      {% set image = project.attachments.images.first() %}
+      {% if image %}
+      <div class="pure-u-1 pure-u-sm-2-5">
+        <img src="{{ image.thumbnail(640)|url }}" alt="{{ project.title }} image" class="pure-img">
+      </div>
+      {% endif %}
+      <div class="panel-content pure-u-1 pure-u-sm-3-5">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.excerpt }}</p>
+        {% if project.website %}
+          <p>
+            <a href="{{project.website}}">Project website &nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
+          </p>
+        {% endif %}
+        {% if project.show_details %}
+          <p>
+            <a href="{{project._slug}}">Read more...</a>
+          </p>
+        {% endif %}
+        {% if project.tags %}
+        <ul class="tags-list">
+          {% for tag in project.tags %}
+          <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}
