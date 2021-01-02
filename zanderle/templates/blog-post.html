@@ -2,6 +2,8 @@
 {% block og_type %}article{% endblock %}
 {% block title %}{{ this.title }} | Musings{% endblock %}
 {% block meta_description %}{% if this.meta_description %}{{ this.meta_description }}{% else %}A blog by Žan Anderle. Some musings on tech, music and everything in between.{% endif %}{% endblock %}
+{% block og_image %}{% if this.attachments.images %}{{ this.url_to("/", external=True)[:-1] }}{{ this.attachments.images|first|url(absolute="/") }}{% else %}{{ super() }}{% endif %}{% endblock%}
+{% block twitter_card %}{% if this.twitter_card %}{{ this.twitter_card }}{% else %}summary{% endif %}{% endblock %}
 {% block body %}
   <a href="{{ '/musings'|url }}">&lt; Just Some Musings</a>
   <article>
@@ -10,6 +12,12 @@
       <time datetime="{{ this.pub_date }}"> — {{ this.pub_date|dateformat('full') }}</time>
     </header>
     <div class="blog-post-body">{{ this.body }}</div>
+    <hr/>
+    <div class="subscribe">
+        <p>I want to start blogging a bit more. If you want to be updated on when I publish something, subscribe, and you'll be the first to know.</p>
+        <iframe class="mj-w-res-iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://app.mailjet.com/widget/iframe/68wo/GdP" width="100%"></iframe>
+        <script type="text/javascript" src="https://app.mailjet.com/statics/js/iframeResizer.min.js"></script>
+    </div>
     <div class="comments">{{ render_disqus_comments() }}</div>
   </article>
 {% endblock %}

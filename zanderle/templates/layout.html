@@ -4,21 +4,18 @@
     <link href="{{ '/bower_components/pace/themes/silver/pace-theme-minimal.css'|asseturl }}" rel="stylesheet" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{% block description %}Žan Anderle; a consultant and a full stack web engineer with a passion for user experience{% endblock %}">
+    <meta name="description" content="{% block description %}Senior developer you were looking for. Hi, I’m Žan and I’m a full stack web engineer with a passion for user experience. Read on to see how I can help you.{% endblock %}">
     <meta name="author" content="Žan Anderle">
 
     <!-- Social Meta Tags -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="{% block twitter_card %}summary{% endblock %}" />
     <meta name="twitter:site" content="@z_anderle" />
-    <meta name="twitter:title" content="{{ self.title() }} — zanderle" />
-    <meta name="twitter:description" content="{% block meta_description %}{{ self.description() }}{% endblock %}" />
-    <!-- <meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" /> -->
 
     <meta property="og:url" content="{{ this.url_to(this.url_path, external=True) }}" />
     <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
     <meta property="og:title" content="{{ self.title() }} — zanderle" />
     <meta property="og:description" content="{{ self.meta_description() }}" />
-    <!-- <meta property="og:image" content="https://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" /> -->
+    <meta property="og:image" content="{% block og_image %}{{ site.get('/').attachments.get('home.png')|url }}{% endblock %}" />
 
     <!--[if lte IE 8]>
       <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
@@ -44,6 +41,7 @@
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-53540157-2', 'auto');
+      ga('require', 'linkid');
       ga('send', 'pageview');
 
     </script>
@@ -54,12 +52,13 @@
         <div>
             <div role="heading">
                 <h1><a href="/">&lt; žanderle /&gt;</a></h1>
-                <h2>Developer by Day, Jazz Nut by Night.</h2>
+                <h2>Developer by Day, Boardgamer by Night.</h2>
             </div>
             <nav>
-                <ul>
+                <ul id="main-menu">
                     {% for href, title, icon in [
                         ['/work', 'Work', 'fa-code'],
+                        ['/contact', 'Contact', 'fa-envelope'],
                         ['/musings', 'Musings', 'fa-pencil']
                     ] %}
                         <li>
@@ -69,12 +68,6 @@
                             </a>
                         </li>
                     {% endfor %}
-                    <li>
-                        <a href="{{ bag('social', 'github') }}" target="_blank">
-                        <i aria-hidden="true" class="fa fa-2x fa-fw fa-github"></i>
-                        Github
-                        </a>
-                    </li>
                     <li>
                         <a href="{{ bag('social', 'twitter') }}" target="_blank">
                         <i aria-hidden="true" class="fa fa-2x fa-fw fa-twitter"></i>
@@ -89,7 +82,7 @@
         {% block body %}{% endblock %}
     </main>
     <footer>
-        &copy; 2019 Created and designed by Žan Anderle.
+        &copy; 2021 Created and designed by Žan Anderle.
     </footer>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <script type=text/javascript src="{{ '/static/gen/app.js'|asseturl }}" charset="utf-8"></script>

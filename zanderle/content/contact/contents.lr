@@ -1,0 +1,12 @@
+title: Contact
+---
+body:
+
+The best way to contact me would be to send me an email to hello at zanderle.com. Looking forward to hearing from you!
+
+If you'd like to discuss a [specific service that I offer](/#services), you can book a free consultation/initial call <a href="https://calendly.com/zananderle/free-consultation" id="calendly-link">here.</a>
+
+<script>
+var calendly = document.getElementById("calendly-link");
+calendly.addEventListener("click", function() { ga('send', 'generate_lead'); });
+</script>

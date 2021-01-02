@@ -1,0 +1,251 @@
+title: How to Use Tailwind With Django
+---
+twitter_card: summary_large_image
+---
+body:
+
+Have you been hearing about how cool Tailwind is but are not sure how to use it with Django? Then this blog post is for you!
+
+However, if you're looking for an introduction to Tailwind (which this blog post is **not**), check out [William Vincent's Beginner's guide to Tailwind CSS](https://wsvincent.com/learn-tailwind-css-beginners-guide/) or [Tailwind's official docs](https://tailwindcss.com).
+
+## 1. The simplest solution (Tailwind CDN)
+
+The simplest solution is to use Tailwind CDN and get started right away. Include the following in every Django template (or base templates) where you want to use Tailwind.
+
+```html
+<head>
+  ...
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  ...
+</head>
+```
+
+And that's it! We can start using Tailwind classes in our templates.
+
+The nice thing about this solution is that it's extremely fast to implement. Plus, you can easily test if you even like using the framework (which I recommend doing, because it's quite different from what you might be used to).
+
+The downside is that this will load the **entire** Tailwind CSS framework, which is not how the framework is intended to operate. So this solution is fine only for playing around, and not at all for production.
+
+## 2. Use Django-Tailwind package
+
+There's a package that basically does all the hard work for us: [django-tailwind](https://github.com/timonweb/django-tailwind). To use it, follow the installation instructions (this includes stuff like `pip install django-tailwind` and setting a few settings).
+
+This solution is great for people who want to use Tailwind the way it was meant to be used (with compilation step that removes all the unused CSS classes), but don't want to deal with any of the JavaScript tooling. Django-Tailwind will hide all of that from you, so you only have to deal with Python and Django.
+
+Personally, I'm not a fan of solutions like these. It might be ok to just try it out. But in the long run, you might end up having more work dealing with the package than you would if you just dealt with JavaScript tooling straight on. The reason is that while the package does hide those details from you, under the hood it still uses JavaScript tooling. 
+*[EDIT] The nice thing about this particular package though, is that it doesn't force you to keep using it. If you ever find it's starting to become a crutch, you can easily stop using it and just keep using the setup that it provided (similar to the one described in the next section).*
+
+But you might as well bite the bullet and do it yourself. Which brings us to...
+
+## 3. Use Tailwind with PostCSS
+
+This solution involves a few more steps, but it's the most complete out of the three. The idea is to follow the [official Tailwind recommendations](https://tailwindcss.com/docs/installation#installing-tailwind-css-as-a-post-css-plugin) and make it work with Django. The steps described here makes some assumptions regarding the setup of your Django project. If your project uses some different conventions, it shouldn't be too hard to change this setup to make it work (but please comment, if you have any specific questions).
+
+Firstly, we have to install Tailwind and all the JS tooling. You could create a new Django app or folder for this, but I like doing it in the root of the Django project.
+
+Step one is to create a basic `package.json` . This file will define the dependencies and the build scripts).
+
+```bash
+npm init
+```
+
+The resulting file should look something like this:
+
+`package.json`
+
+```json
+{
+  "name": "django-tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+}
+
+```
+
+Next, let's install the packages (and `--save-dev` will save them to `package.json`):
+
+```bash
+npm install --save-dev tailwindcss postcss postcss-cli autoprefixer
+```
+
+The packages we're installing are:
+
+- Tailwind CSS
+- PostCSS: this is for processing the CSS. Tailwind in this example will just be a plugin for PostCSS
+- PostCSS CLI: tool for running PostCSS directly from our command line (without any need for something like gulp or webpack)
+- Autoprefixer: this is another PostCSS plugin, that automatically expands CSS rules with the necessary vendor prefixes.
+
+After that is done, let's create basic configuration files for PostCSS and Tailwind. We'll leave them mostly empty for now, but this will be the place to change any configurations in the future. Create these files on the same level as your `package.json`.
+
+`postcss.config.js`
+
+```js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+```
+
+`tailwind.config.js`
+
+```js
+module.exports = {
+  purge: [],
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+}
+```
+
+Next step is to create our styles file. This is where we'll include the Tailwind CSS and any custom styles that we might want to add (and if you want, you can also have that live in two separate files).
+
+Where you create this file, and how you name it (to perhaps differentiate it from CSS files that you don't want to process with PostCSS for some reason) is up to you. But to keep it simple, we'll follow the Django convention:
+
+`app/static/app/styles.css`
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your custom styles go here */
+```
+
+Now because this file has to be processed with PostCSS before we can use it in our templates, let's do that first. We'll use PostCSS CLI tool to do the processing, but we'll put the commands in the `package.json` so that they can be run simply with commands like `npm start` and `npm run build`.
+
+`package.json`
+
+```json
+{
+  ...
+"scripts": {
+    "start": "postcss {app,another_app}/**/*.css -d static/tailwind --watch",
+    "build": "postcss {app,another_app}/**/*.css -d static/tailwind --env production"
+  },
+  ...
+}
+```
+
+Let's break down what these two commands do. Firstly, they are executed by running `npm start` and `npm run build` for development and production respectively. 
+
+> If you're already using `package.json` for something else, you could easily rename these commands to something other than `start` and `build` to avoid conflicts.
+
+They both follow this pattern:
+
+```bash
+postcss <input-glob-pattern> --dir <output-directory> [OPTIONS] [--watch]
+```
+
+To find all the CSS files that should be processed, we use
+
+```
+{app,another_app}/**/*.css
+```
+
+where `{app,another_app}` is a list of all the apps we want to look into. We could use something like `./**/*.css` instead, but given our directory structure, this would include `node_modules` as well, which we don't want. Also, I think it's a good idea to be explicit about which apps we want to include.
+
+Directory structure of your static files is up to you though, so if you wanted, you could be more specific about which files to include. For example, you could decide to put all your CSS files that should be processed under `tailwind-src` directory, and use this glob pattern:
+
+```
+{app,another_app}/**/tailwind-src/*.css
+```
+
+The next part of the command is
+
+```
+-d static/tailwind
+```
+
+which defines the output directory: `static/tailwind`. The slight problem is that this doesn't retain the directory structure or our styles file (e.g. `static/app/styles.css`), so we have to be a bit more careful about the naming of our files to avoid naming conflicts. Let's leave it and continue with our simple example for now.
+
+Finally 
+
+```
+--watch
+```
+
+will keep watching for changes in the input files, and automatically rebuild the resulting CSS files.
+
+Similarly,
+
+```
+--env production
+```
+
+informs PostCSS that this will be a production build. Right now this doesn't do anything different. But what we want to happen is for Tailwind to remove all the unused CSS classes. We do that by defining the `purge` list in `tailwind.config.js`:
+
+`tailwind.config.js`
+
+```js
+module.exports = {
+  purge: ['{app,another_app}/**/*.{html,py}'],
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+}
+```
+
+This list could be defined differently for your specific needs, but this one here
+
+```
+purge: ['{app,another_app}/**/*.{html,py}']
+```
+
+will look for all the HTML and Python files under `app` and `another_app`. Tailwind will then remove any CSS class names that it doesn't find anywhere in those files. The reason we added Python files is in case you wanted to define some class names in the Python code and pass them through context to the template. If this is not something you would need, you can change the setting to
+
+```
+purge: ['{app,another_app}/**/*.html']
+```
+
+Finally, include the processed CSS file in any template where you want to use Tailwind (or in base template).
+
+`index.html`
+
+```django
+<link rel="stylesheet" href="{% static 'tailwind/styles.css' %}">
+```
+
+And make sure your `STATICFILES_DIRS` include the `static` folder where PostCSS will output the files:
+
+`settings.py`
+
+```python
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+```
+
+Now when you run your development server have another terminal window open and run `npm start`. And similarly, make sure you run `npm run build` before your `collectstatic` step in your deployment process.
+
+And that's it!
+
+## 4. More complicated setup
+
+Step 3 showed a pretty good setup already. This would be completely usable for production and would play along nicely with any systems for static files we already have in place. It's also easy to adjust and expand later on. However there are a few problems with it:
+
+- Output CSS files aren't retaining the directory structure (`app/static/app/styles.css -> static/tailwind/styles.css` instead of `-> static/tailwind/app/styles.css`).
+- The build folder is not cleaned on every run (if you need a quick solution for this run `npm install --save-dev rimraf` and change your build script to `"build": "rimraf /static/tailwind && postcss {app,another_app}/**/*.css -d static/tailwind --env production"`)
+- You have to define a list of apps first in `package.json` and then in `tailwind.config.js`. I don't think this is a big deal, but it could be an easy to thing to forget.
+
+Another problem might be how this would play along with the rest of your front end setup (if you're already using Gulp or Webpack or something similar). Some of these problems could be addressed quite easily within the setup we already have. And for the others we might need a slightly different solution (with Webpack or Gulp). Since they all depend on your specific use case, that's a topic for another blog post. But feel free to ask if you have any questions.
+
+That's it for today. Btw, if you haven't heard, I'm building an online course: [Modern JavaScript for Python Developers](https://javascriptforpython.dev/). Check it out!
+
+---
+excerpt: Have you been hearing about how cool Tailwind is but are not sure how to use it with Django? Then this blog post is for you!
+---
+meta_description: Have you been hearing about how cool Tailwind is but are not sure how to use it with Django? Then this blog post is for you!
+---
+pub_date: 2020-12-03

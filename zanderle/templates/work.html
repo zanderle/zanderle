@@ -13,14 +13,14 @@
   <h2 id="selected-clients">Selected Clients</h2>
   <ul class="panel-list">
   {% for client in this.children|selectattr('_model', 'equalto', 'client') %}
-    <li class="pure-g">
+    <li class="pure-g" id="client-{{ client._slug }}">
       {% set image = client.attachments.images.first() %}
       {% if image %}
       <div class="pure-u-1 pure-u-sm-2-5">
         <img src="{{ image.thumbnail(640)|url }}" alt="{{ client.title }} image" class="pure-img">
       </div>
       {% endif %}
-      <div class="panel-content pure-u-1 pure-u-sm-3-5">
+      <div class="panel-content pure-u-1 {% if image %}pure-u-sm-3-5{% endif %}">
         <h3>{{ client.title }}</h3>
         <p>{{ client.excerpt }}</p>
 
@@ -56,7 +56,7 @@
         <img src="{{ image.thumbnail(640)|url }}" alt="{{ project.title }} image" class="pure-img">
       </div>
       {% endif %}
-      <div class="panel-content pure-u-1 pure-u-sm-3-5">
+      <div class="panel-content pure-u-1 {% if image %}pure-u-sm-3-5{% endif %}">
         <h3>{{ project.title }}</h3>
         <p>{{ project.excerpt }}</p>
         {% if project.website %}
