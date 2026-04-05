@@ -1,0 +1,58 @@
+_model: project
+---
+title: Vue Workshop
+---
+date: 2019-08-01
+---
+sort_key: 1
+---
+tags:
+
+Vue
+DRF
+Django
+---
+excerpt:
+
+This was a workshop done for [BACS team](/work/k2m). It was done remotely, and the material was prepared specifically for this team.
+
+### Motivation
+Their project is quite old, and while the backend is regularly upgraded and is up to date, they wanted to start upgrading their frontend too.
+They wanted to be able to implement complex features more easily (rather than overuse jQuery and Django templates). Another motivation for making the frontend more reactive is that they could use the same API that they're already using for the mobile app. Which translates into less work required.
+
+---
+show_details: yes
+---
+body:
+
+This was a workshop done for [BACS team](/work/k2m). It was done remotely, and the material was prepared specifically for this team.
+
+### Motivation
+Their project is quite old, and while the backend is regularly upgraded and is up to date, they wanted to start upgrading their frontend too.
+They wanted to be able to implement complex features more easily (rather than overuse jQuery and Django templates). Another motivation for making the frontend more reactive is that they could use the same API that they're already using for the mobile app. Which translates into less work required.
+
+### Content
+We covered:
+- modern JavaScript basics
+- introduction to Vue
+- how Vue (and modern JavaScript tools) are implemented in their project
+- how to refactor an existing view in their application to start using Vue
+- how to implement a new feature in Vue (again using an example specific to their application)
+
+The workshop was livestreamed (so attendees could code the example at the same time as it was explained and ask questions) and they were also given the recording of the livestream.
+After the workshop, the attendees were prepared to start using Vue in their project right away.
+
+### Testimonials
+
+"Zanderle's introduction to Vue was a quick, effective introduction to the fascinating world of the framework. He provided a thorough, yet easy to understand starting point that covered all of the points you might need to start your own project."
+
+Jeremy Childers
+
+"As someone new to Vue but with some front-end experience, Žan's Vue workshop was at a perfect pace and contained enough examples and explanations to have me using Vue comfortably right away. After discussing the basics and setting up a new Vue instance, Žan went on to discuss some more difficult implementations and common problems that our team might run into. I really liked that Žan had prepared and shared branches of the workshop at different steps in the process so we could see it through from start to finish.
+ Because this workshop was tailored to our project specifically, it was even easier to understand each step of the process and how using Vue would benefit our project. Lastly, because the workshop was live, we were able to ask questions and get help as we followed along, but being able to reference the recorded sessions later was helpful when working on my own"
+
+[Rachell Calhoun](https://twitter.com/Rachell_Calhoun)
+
+"The Vue training Žan provided was instrumental for the team's ability to quickly become familiar with the technology and integrate it into our existing projects.  With his patient, hands on approach, we were able to walk out of our training sessions with answered questions and confidence."
+
+[Cory Sutyak](https://twitter.com/codecory)

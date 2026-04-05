@@ -1,0 +1,26 @@
+_model: client
+---
+title: Datafy.it
+---
+body: 
+---
+date: 2013-01-12
+---
+excerpt:
+
+Software and UX developer at Datafy.it.
+
+I worked on Datafy.it search engine for business contacts. The work involved building a big Django application, working with a team of 3 other developers and developing the UX of the product (doing interviews, need-finding, prototyping, etc).
+---
+website: https://www.xlab.si/innovation/datafy-it/
+---
+sort_key: 3
+---
+tags:
+
+UX
+Django
+DRF
+Python
+---
+show_details: no

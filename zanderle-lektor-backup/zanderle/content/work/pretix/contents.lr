@@ -1,0 +1,31 @@
+_model: client
+---
+title: pretix
+---
+body:
+
+"When we started planning to extend our event ticketing software with a seating plan feature, we knew that we could not do this on our own – the amount of work involved would have made it impossible to build this in-house in the time frame we imagined. We’ve been lucky to find a professional as skilled as Žan to implement the frontend component of this project. Žan took the time to fully understand our goals and constraints and then continously delivered excellent, thoughtfully structured results. Communicating and working with Žan has always been a pleasure and we’d be thrilled to hire him again in the future."
+
+Raphael Michel, Founder
+
+The end result of this project was a frontend component for selecting seats and creating seating plans for different venues.
+---
+date: 2019-1-1
+---
+excerpt:
+
+"When we started planning to extend our event ticketing software with a seating plan feature, we knew that we could not do this on our own – the amount of work involved would have made it impossible to build this in-house in the time frame we imagined. We’ve been lucky to find a professional as skilled as Žan to implement the frontend component of this project. Žan took the time to fully understand our goals and constraints and then continously delivered excellent, thoughtfully structured results. Communicating and working with Žan has always been a pleasure and we’d be thrilled to hire him again in the future."
+
+Raphael Michel, Founder
+
+The end result of this project was a frontend component for selecting seats and creating seating plans for different venues.
+---
+sort_key: 0
+---
+tags:
+
+React
+UX
+JSON Schema
+---
+website: https://pretix.eu/

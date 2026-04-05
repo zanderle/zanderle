@@ -1,0 +1,17 @@
+_model: project
+---
+title: Musings on Music
+---
+date: 2016-1-1
+---
+excerpt: I am a huge music fan, and I also enjoy writing about it. This is my blog on music that I'm sometimes proud of and sometimes I'd rather hide it.
+---
+tags:
+
+Writing
+Music
+Jekyll
+---
+website: http://musingsonmusic.com
+---
+sort_key: 10

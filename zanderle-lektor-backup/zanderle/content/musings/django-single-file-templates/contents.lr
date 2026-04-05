@@ -1,0 +1,328 @@
+title: Django Single File Templates
+---
+_discoverable: yes
+---
+body:
+
+Let's make it clear: Django is great and I agree with Simon Willison:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">In 2020 there is a LOT to be said for batteries included server-side frameworks like Rails and Django. Still my default choice for any web application that needs to do classic CRUD against a database <a href="https://t.co/ieBSzqdLlY">https://t.co/ieBSzqdLlY</a></p>&mdash; Simon Willison (@simonw) <a href="https://twitter.com/simonw/status/1328044798335279104?ref_src=twsrc%5Etfw">November 15, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+But there is also a LOT to be said about the advancements in the front end world. As great as Django is, there are some things you just can't do in Django (as well, or at all) like you can in front end frameworks like React or Vue. These front end frameworks have a bunch of new ideas and patterns that are really good and make a lot of sense. Why don't we try and apply some of these to Django?
+
+### Separation of concerns ≠ Separation of files
+
+One such idea is that separation of concerns is not the same as separation of files, and that separating components makes more sense than separating *technologies*. This was first introduced by React with its JSX. JSX allows you to write HTML in JavaScript in a sensible way, so that you can write the whole component (UI and rendering logic) all in one file. This felt odd to me the first time I heard about it, but made so much sense the first time I used it.
+
+Other frameworks adopted this pattern as well: Vue introduced SFC (Single File Components). It's quite different from JSX (both in terms of syntax and how it works), but the idea behind it is the same.
+
+**And it makes so much sense!**
+
+Back to Django. Could we somehow apply this to Django? Probably, but because Django doesn't have the same concept of components as the front end frameworks, it's not clear how. One idea that first comes to mind is to apply it to the front end part of Django -- templates.
+
+### How Django does it
+
+Let's look at an example. Say we need to implement a page that contains a list of items, and a button that can add another item to the list. Usually this looks something like this:
+
+1) Let's create our template `page.html`. We'll probably want to extend from an existing base, so let's use `{% extends %}`
+
+`templates/app/page.html`
+
+```html
+{% extends 'base.html' %}
+{% block main %}
+<p>Press this button to add another item to the list</p>
+<button type="button" id="add-item-button">Add item</button>
+
+<ul id="list">
+  <li>First item</li>
+</ul>
+{% endblock %}
+```
+
+2) Great! Now, we need to add some code to make this work. Let's write our JavaScript. That's a new file, something like `static/app/page.js`:
+
+```javascript
+const button = document.getElementById('add-item-button');
+const list = document.getElementById('list');
+
+let addedItems = 0;
+
+button.addEventListener('click', (ev) => {
+  const li = document.createElement('li');
+  li.innerHTML = `New item - ${addedItems}`;
+  addedItems++;
+  list.appendChild(li);
+});
+```
+
+3) Yup, that should do it. Now we need to include it into our template. If we want to do that, we'll first need to check the base template, to see what the block for adding scripts is called
+
+`base.html`
+
+```html
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Website</title>
+    {% block styles %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/page">Page</a>
+      </nav>
+    </header>
+    {% block main %}
+      <h1>This is where the content will go</h1>
+    {% endblock %}
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
+```
+
+4) Ok, so we add it to `scripts`. Ugh, wait, what did I name my static file again? Let's double check... right, it was `app/page.js`. Let's add that.
+
+```html
+{% extends 'base.html' %}
+{% block main %}
+<p>Press this button to do another item to the list</p>
+<button type="button" id="add-item-button">Add item</button>
+
+<ul id="list">
+  <li>First item</li>
+</ul>
+{% endblock %}
+
+{% block scripts %}<script src="{% static 'app/page.js' %}"></script>{% endblock %}
+```
+
+5) Great, this works. But now I realized I want to add some styling as well.
+6) Let's go back to `base.html` to see what the block for adding styles is called.
+7) Let's create the css file: `app/page.css`:
+
+```css
+#add-item-button {
+  padding: 10px;
+  background-color: gray;
+  color: white;
+}
+```
+
+8) Ok, now let's add it to our `app/page.html` template. But let's double check the name of the css file and the name of the block, to make sure it will work... Ok, I think we've got it;
+
+```html
+{% extends 'base.html' %}
+{% block main %}
+<p>Press this button to add another item to the list</p>
+<button type="button" id="add-item-button">Add item</button>
+
+<ul id="list">
+  <li>First item</li>
+</ul>
+{% endblock %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'app/page.css' %}">{% endblock %}
+{% block scripts %}<script src="{% static 'app/page.js' %}"></script>{% endblock %}
+```
+
+I don't know about you, but for me that's too many steps for such a simple task. And anytime you want to change something you constantly have to jump between files to make sure everything is in sync. I've often seen developers simply write the javascript directly in their templates, instead of a separate file to avoid this. But that brings its own set of problems. Surely there must be a better way...
+
+### How Django *could* do it
+
+This got me thinking -- what would Single File ~~Components~~ Templates look like?
+
+Personally, I'm a big fan of Vue's Single File Components (hence the similar name), so let's try to use that as an example. The example above would probably look something like this:
+
+`base.sft`
+
+```html
+<template>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Website</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/page">Page</a>
+      </nav>
+    </header>
+    {% block main %}
+      <h1>This is where the content will go</h1>
+    {% endblock %}
+  </body>
+</html>
+</template>
+
+<script>
+// Some javascript for the base template
+</script>
+
+<style>
+/* Some styling for the base template */
+</style>
+```
+
+And then our new page:
+
+`app/page.sft`
+
+```html
+<template>
+{% extends 'base.sft' %}
+{% load static %}
+
+{% block main %}
+<p>Press this button to do another item to the list</p>
+<button type="button" id="add-item-button">Add item</button>
+
+<ul id="list">
+  <li>First item</li>
+</ul>
+{% endblock %}
+</template>
+
+<script>
+const button = document.getElementById('add-item-button');
+const list = document.getElementById('list');
+
+let addedItems = 0;
+
+button.addEventListener('click', (ev) => {
+  const li = document.createElement('li');
+  li.innerHTML = `New item - ${addedItems}`;
+  addedItems++;
+  list.appendChild(li);
+});
+</script>
+
+<style>
+#add-item-button {
+  padding: 10px;
+  background-color: gray;
+  color: white;
+}
+</style>
+```
+
+Looking at this, it might seem like it is almost no different than the first example. But it is. Actually having all of the related pieces in one file makes for a really nice developer experience.
+
+The output of this file would ideally be very similar to our first example: separate static files that are included in the html. And it would be nice to be able to process those static files (for example with Webpack or Django Pipeline), so that something like JS modules and Sass would be supported.
+
+### Introducing django-sft
+
+As I was thinking about this, I wanted to see if I could implement this in Django. Over the weekend I came up with [django-sft](https://github.com/zanderle/django-sft). It's buggy and in no way a complete (or even particularly good) solution/implementation, but it works and serves as a proof of concept. The above example is a working example of django-sft.
+
+You can try it yourself:
+
+```bash
+pip install django-sft
+```
+
+Add it to your installed apps:
+
+```python
+INSTALLED_APPS = (
+    ...
+    'django_sft',
+    ...
+)
+```
+
+And add SFT Template loader (in your `settings.py`):
+
+```python
+TEMPLATES = [
+    {
+        ...
+        'OPTIONS': {
+            'loaders': [
+                'django_sft.template.SFTLoader',
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ],
+            ...
+        }
+    }
+]
+```
+
+And that's it! You can now render the SFT in your views the same way you would a normal HTML template:
+
+```python
+def view(request):
+  context = {}
+	return render('app/page.sft', context)
+```
+
+Django-sft will produce HTML and static files out of SFT and make sure that those static files are properly injected in the HTML. SFT Template loader will make sure that when `.sft` template is rendered somewhere, it will point it to the resulting `.html` file instead.
+
+Because actual static files are created, you can still process those files the same way you would otherwise. There's [an example in the documentation](https://github.com/zanderle/django-sft/tree/master/tests) that shows how this could work with [django-webpack-loader](https://github.com/owais/django-webpack-loader).
+
+### Going forward
+
+I like the initial idea, but this is obviously still very early stage. Some things that I'm looking to add are:
+
+- Being able to use "src" attribute on `script` and `style` tags.
+- Being able to add more than one `script` and `style` tags per template.
+
+So both of those combined would mean that something like this would be a valid SFT:
+
+```html
+<template>
+...
+</template>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+axios.get('some-url').then(resp => resp.json()).then(json => json.object);
+</script>
+```
+
+After that, it would be really nice to have a better implementation of the whole thing.
+
+Another thing I've been considering is to implement it as a Webpack plugin and loader (basically how Vue does it). It would be cool to use the same syntax for the actual SFT files as we've just seen. That way the developer can choose whether Django implementation or Webpack implementation makes more sense for their project. But with Webpack you could easily add a `lang` attribute and process the files with other Webpack loaders. This would mean that out of the box you could get TypeScript support, Sass, bundling, compressing, hot reloading, etc. In this case, all Django would have to do is point `.sft` templates to the correct resulting `.html` files that Webpack would output.
+
+Something like this should work more or less out of the box:
+
+```html
+<template>
+...
+</template>
+
+<script>
+import axios from 'axios';
+import { helperFunction } from 'my-app/utils';
+
+...
+</script>
+
+<style lang="scss">
+  body {
+    p {
+      ...
+    }
+  }
+</style>
+```
+
+What do you think? If you try it out, let me know how it goes!
+
+
+<br/>
+<br/>
+*Special thanks to [@rmcomplexity](https://twitter.com/rmcomplexity) and [@jangiacomelli](https://twitter.com/jangiacomelli) for proofreading and providing feedback!*
+---
+excerpt: What would Django Single File ~~Components~~ Templates look like? As great as Django is, there are some things you just can't do in Django (as well, or at all) like you can in front end frameworks like React or Vue. These front end frameworks have a bunch of new ideas and patterns that are really good and make a lot of sense. Why don't we try and apply some of these to Django?
+---
+meta_description: Django Single File Templates -- inspired by Vue's Single file components. Make your Django templates more organized by holding your HTML and all the related CSS and JavaScript in a sensible way.
+---
+pub_date: 2020-11-18

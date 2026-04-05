@@ -1,0 +1,15 @@
+_model: client
+---
+title: Google
+---
+date: 2018-1-1
+---
+tags:
+
+Angular
+Django
+DRF
+---
+excerpt: Built a web application from scratch in Angular 2+ and Django REST Framework as an internal tool for a Google team.
+---
+sort_key: 1

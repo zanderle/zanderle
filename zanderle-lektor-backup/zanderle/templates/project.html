@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }} ({{ this.date.year }}){% endblock %}
+{% block body %}
+  <h1><a href="{{ this.website }}">{{ this.title }}</a></h1>
+
+  {% set images = this.attachments.images.all() %}
+  <div class="pure-g">
+  {% if images %}
+      <div class="panel-content pure-u-sm-2-5 pure-u-1">
+        {% for image in images %}
+            <img src="{{ image.thumbnail(640)|url }}" alt="{{ this.title }}" class="pure-img">
+        {% endfor %}
+      </div>
+  {% endif %}
+      <div class="panel-content pure-u-sm-3-5 pure-u-1">
+        {% if this.website %}
+        <p>
+          <a href="{{ this.website }}">Client's website &nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
+        </p>
+        {% endif %}
+        <p>{{ this.body }}</p>
+      </div>
+  </div>
+{% endblock %}

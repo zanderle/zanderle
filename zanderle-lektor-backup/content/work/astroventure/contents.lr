@@ -1,0 +1,59 @@
+_model: client
+---
+title: AstroVenture
+---
+body:
+
+AstroVenture is a company that develops and markets innovative educational products. Their initial product is the University of Mars video game which is a self-contained introductory college level course. It is also appropriate for independent study of astronomy for all ages.
+
+The work included consulting regarding API endpoints, and implementing some new/reworking some old features.
+
+## Testimonial
+
+- What challenge were you facing that led you to hire Žan? 
+
+Two main issues led to me hiring Žan: first, I don't like front end work nearly as much as backend work, and I had a lot to get finished this summer on the front end. Second, while I enjoy programming with Django, there were a few things I didn't know how to do, and I needed someone with more expertise to help me understand my options.
+
+- What made you choose Žan over another consultant or doing the work in-house? 
+
+I chose Žan over doing the work myself mostly because of the reasons above. I chose Žan over other consultants because he came recommended by several folks I trust and in the initial consultation, I could tell he knew the technical work I needed to address and was clear about estimates.
+
+- What did you find as a result of the engagement/working together? (followup: was it worth the investment?)
+
+ It was definitely worth the investment. First, trading money for time (the work I couldn't get to) was a great investment because it allowed us to complete features for our clients we otherwise wouldn't have for this year. Second, seeing Žan's progress on the work helped push me to get more work done to integrate his work and push the project forward. I think I would have gotten less done myself this summer if not for working with Žan because keeping up the motivation consistently over many months as a solo founder is difficult. Third, there are things I was able to ask Zan directly that would have taken me a long time to figure out through the Django docs or some other technical source.
+
+- What are some benefits you saw about working with Žan? 
+
+As mentioned above, seeing Zan complete work helped motivate me to integrate that work and then make more progress of my own. Also, I was able to talk through solutions with Zan. Sometimes this was just helpful to reassure me I wasn't missing anything. Other times, he would point out a solution I was unaware of.
+
+- Would you recommend Žan to others? If so, why?
+
+ Yes. Žan has both broad and deep knowledge in web development. Perhaps just as important, as a consultant, he is very clear about what things will be difficult or easy, and why. This is incredibly helpful in planning both work I assign to him as well as scheduling my own work.
+
+
+-- Andrew Mshar, Founder and developer
+---
+date: 2020-09-30
+---
+excerpt:
+
+"Žan has both broad and deep knowledge in web development. Perhaps just as important, as a consultant, he is very clear about what things will be difficult or easy, and why. This is incredibly helpful in planning both work I assign to him as well as scheduling my own work."
+
+Andrew Mshar, Founder and developer
+
+AstroVenture is a company that develops and markets innovative educational products. Their initial product is the University of Mars video game which is a self-contained introductory college level course. It is also appropriate for independent study of astronomy for all ages.
+
+The work included consulting regarding API endpoints, and implementing some new/reworking some old features.
+
+---
+show_details: yes
+---
+tags:
+
+Django
+JavaScript
+Webpack
+---
+website: https://www.theastroventure.com/
+---
+sort_key: 1

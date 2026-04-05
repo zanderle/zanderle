@@ -1,0 +1,32 @@
+_model: client
+---
+title: ButterCMS
+---
+date: 2022-03-04
+---
+excerpt:
+
+"Žan has been a pleasure to work with. Very collaborative, great communication, and provides very helpful feedback in how to best implement something new"
+
+Jake Lumetta, CEO
+
+I've been working on the ButterCMS development team since 2021. The work is very varied. Mainly I've been working on adding new features and optimizing and improving the API endpoints and the caching system. 
+
+ButterCMS has a relatively high volume of customers and requests which brings with it a set of problems not seen on your average project. 
+---
+tags:
+
+Django
+Vue
+---
+website: https://buttercms.com
+---
+body:
+
+"Žan has been a pleasure to work with. Very collaborative, great communication, and provides very helpful feedback in how to best implement something new"
+
+Jake Lumetta, CEO
+
+I've been working on the ButterCMS development team since 2021. The work is very varied. Mainly I've been working on adding new features and optimizing and improving the API endpoints and the caching system. 
+
+ButterCMS has a relatively high volume of customers and requests which brings with it a set of problems not seen on your average project. 

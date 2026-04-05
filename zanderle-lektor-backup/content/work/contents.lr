@@ -1,0 +1,22 @@
+_model: work
+---
+title: Work
+---
+_slug: 
+---
+body:
+
+Here's a collection of some of my clients and some of the things I do as a full stack web engineer.
+
+[Check out](/#services) the services that I offer.
+
+Besides doing consulting work and coding, I love teaching/mentoring and speaking at conferences/giving workshops. [Check out my workshops](/workshops)!
+
+Interested in working with me? [Let's talk!](/contact)
+---
+block:
+
+#### work ####
+title: Projects
+----
+body: Some projects
