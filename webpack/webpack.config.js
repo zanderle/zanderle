@@ -12,7 +12,7 @@ module.exports = (env, argv) => {
       styles: "./webpack/scss/main.scss",
     },
     output: {
-      path: path.resolve(__dirname, "src/static/gen"),
+      path: path.resolve(__dirname, "../src/static/gen"),
       filename: "[name].js",
     },
     devtool: isProd ? false : "cheap-module-source-map",

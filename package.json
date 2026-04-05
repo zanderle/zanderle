@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "npm run webpack:build && npx @11ty/eleventy",
-    "start": "npm-run-all --parallel webpack:watch eleventy:serve",
+    "start": "npm-run-all webpack:build --parallel webpack:watch eleventy:serve",
     "eleventy:serve": "npx @11ty/eleventy --serve",
     "webpack:build": "webpack --mode production --config webpack/webpack.config.js",
     "webpack:watch": "webpack --watch --mode development --config webpack/webpack.config.js"
