@@ -92,25 +92,9 @@ Book a free consultation and we'll figure out if we're a good match and I'll ans
 
 ## Modernize your Django frontend
 
-Do you have an existing Django project (perhaps a big one? Maybe a bit old also?) where you would love to modernize the front end? To start using some of the modern JS stuff (like React/Vue/TypeScript/Webpack etc.)? But you don't know how to approach it because all the online resources show only simple examples (or assume you're starting with a brand new project...)? Or because your team would have to learn a new skill? Or because you're afraid this would require a full rewrite?
+Do you have an existing Django project where you would love to modernize the front end? To start using some of the modern JS stuff (like React/Vue/TypeScript/Webpack etc.)? I'd love to help. Using modern JavaScript and its tooling can be hugely helpful, if done right. It can make your developers much more efficient at implementing complex interfaces, and makes the software more maintainable.
 
-Or maybe you want to be prepared for your next project and want to make sure your web application's front end uses the modern approaches and that your team is ready for it.
-
-If any of this rings true I'd love to help. Using modern JavaScript and its tooling can be hugely helpful, if done right. It can make your developers much more efficient at implementing complex interfaces, and makes the software more maintainable. The key part of course being "if done right". It's very easy to fall prey to the hype and the feeling that all of these modern frameworks are the only proper way of doing things. Or on the other hand, it's dangerous to think that the best way is to just use plain HTML and CSS and nothing else. It depends on the project, but the truth is usually somewhere in between. I believe a balanced and informed approach is the best, and you can benefit a lot from it.
-
-#### Imagine having best of both worlds
-
-Imagine being able to keep up with the modern JavaScript world, without having to rewrite your entire application. Imagine having your team be confident in how it all works. Imagine having all these approaches be considered in a balanced and informed way **specifically for your project**.
-
-The impacts on your project depend on the specific use-case, but at the very least this means:
-
-- Better usability for the end user
-- Better developer experience
-- A lot more resources available
-- Easier to implement complex front end features
-- Easier to maintain those features
-
-Book a free consultation and I'll help you figure out how this could be best done for your project, and what the potential upsides are.
+Book a free consultation and I'll help you figure out how this could be best done for your project.
 
 <div class="flex">
 <a role="button" class="cta" href="/contact">Book a free consultation!</a>
@@ -130,15 +114,7 @@ Let me help you profile your application, and optimize your endpoints.
 
 Do you want to finally start implementing those bigger, complex features? Or maybe you need someone to jump in quickly and start doing the work? Imagine having someone experienced on the team, who can help you with these problems.
 
-If you want to get things moving, I'm here to help! I have experience with a wide range of languages, tools and frameworks, but I specialize in Python, Django, DRF on the back end and TypeScript, React and Vue on the front end. If your stack doesn't match exactly, feel free to reach out anyway. I'll let you know right away if it's out of my scope.
-
-This service is great if you want:
-
-- good implementation of complex features
-- your software projects to run smoother
-- your code cleaner, more reusable and better documented
-- mentorship for your junior developers
-- someone who can jump in quickly and start doing the work right away without too much on-boarding
+If you want to get things moving, I'm here to help! I specialize in Python, Django, DRF on the back end and TypeScript, React and Vue on the front end.
 
 > "Žan is truly a collaborative member of the team. He often mentors other members of the team without being prompted. His range of expertise and willingness to share has made him a tremendous asset to the BACS engineering team." — [Shawn Inman, BACS lead engineer](/work/k2m/)
 
