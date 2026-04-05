@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: blog-post.html
 title: Let's Try Something Different
 date: 2016-10-28
 excerpt: This summer was crazy. So much has happened! And with all that momentum I thought "why not start a new blog?". After being with Datafy.it for almost 3 years I decided to try something different, and in July quit and started as a freelancer.

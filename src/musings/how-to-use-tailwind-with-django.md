@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: blog-post.html
 title: How to Use Tailwind With Django
 date: 2020-12-03
 excerpt: Have you been hearing about how cool Tailwind is but are not sure how to use it with Django? Then this blog post is for you!

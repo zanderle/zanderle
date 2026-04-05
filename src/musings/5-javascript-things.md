@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: blog-post.html
 title: 5 JavaScript things you should know/understand as a Python Developer
 date: 2021-01-13
 excerpt: Modern JavaScript is in many ways very similar to Python. But it's also very different. I notice a lot of Python developers don't really leverage those similarities and aren't too familiar with the differences. Which is a shame. If you're a Python developer trying to become better at JavaScript, there are a few things that you could learn that would really level up your JavaScript knowledge.

@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: blog-post.html
 title: Let's Play Board Games
 date: 2021-01-02
 excerpt: "I don't know if you know this already, but I'm a huge fan of board games. And one of the things that is inherently related to the hobby of board gaming is inviting and hosting guests, or how people often like to put it: organizing board game nights. But I don't like any of the existing solutions. So I started thinking about creating something myself."

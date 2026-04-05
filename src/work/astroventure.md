@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: work-detail.html
 title: AstroVenture
 date: 2020-09-30
 order: 1

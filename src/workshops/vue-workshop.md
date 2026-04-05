@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: work-detail.html
 title: Vue Workshop
 date: 2019-08-01
 order: 1

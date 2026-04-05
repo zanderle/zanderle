@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: blog-post.html
 title: Django Single File Templates
 date: 2020-11-18
 excerpt: What would Django Single File Templates look like? As great as Django is, there are some things you just can't do in Django (as well, or at all) like you can in front end frameworks like React or Vue. These front end frameworks have a bunch of new ideas and patterns that are really good and make a lot of sense. Why don't we try and apply some of these to Django?

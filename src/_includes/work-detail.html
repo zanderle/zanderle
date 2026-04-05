@@ -1,0 +1,20 @@
+---
+layout: layout.html
+---
+<h1>{{ title }}</h1>
+
+<div class="pure-g">
+    {% if image %}
+    <div class="panel-content pure-u-sm-2-5 pure-u-1">
+        <img src="{{ image }}" alt="{{ title }}" class="pure-img">
+    </div>
+    {% endif %}
+    <div class="panel-content pure-u-sm-3-5 pure-u-1">
+        {% if website %}
+        <p>
+            <a href="{{ website }}" target="_blank" rel="noopener">Website &nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
+        </p>
+        {% endif %}
+        <div>{{ content | safe }}</div>
+    </div>
+</div>

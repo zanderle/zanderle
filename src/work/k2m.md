@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: work-detail.html
 title: K2M - BACS
 date: 2018-05-05
 order: 1

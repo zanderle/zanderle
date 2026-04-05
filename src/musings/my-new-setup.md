@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: blog-post.html
 title: My New Setup
 date: 2019-03-21
 excerpt: I recently renewed my home working space. Since I work from home this was kind of a big deal. The truth is, I didn't even think about it before. But now that I have a proper setup, I see what a difference it makes. It helps me with posture, focus and productivity.
