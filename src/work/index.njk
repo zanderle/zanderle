@@ -1,0 +1,37 @@
+---
+layout: layout.html
+title: Work
+permalink: /work/
+---
+<h1>Work</h1>
+
+<p>Here's a collection of some of my clients and some of the things I do as a full stack web engineer.</p>
+<p><a href="/#services">Check out</a> the services that I offer.</p>
+<p>Besides doing consulting work and coding, I love teaching/mentoring and speaking at conferences/giving workshops. <a href="/workshops">Check out my workshops</a>!</p>
+<p>Interested in working with me? <a href="/contact">Let's talk!</a></p>
+
+<ul class="panel-list">
+  {% for item in collections.work %}
+  <li id="client-{{ item.fileSlug }}">
+    {% if item.data.image %}
+    <img src="{{ item.data.image }}" alt="{{ item.data.title }}">
+    {% endif %}
+    <div class="panel-content">
+      <h2>
+        {% if item.data.showDetails %}<a href="{{ item.url }}">{{ item.data.title }}</a>
+        {% elif item.data.website %}<a href="{{ item.data.website }}" target="_blank" rel="noopener">{{ item.data.title }}</a>
+        {% else %}{{ item.data.title }}
+        {% endif %}
+      </h2>
+      {% if item.data.excerpt %}<div>{{ item.data.excerpt | safe }}</div>{% endif %}
+      {% if item.data.tags %}
+      <ul class="tags-list">
+        {% for tag in item.data.tags %}
+        <li>{{ tag }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
