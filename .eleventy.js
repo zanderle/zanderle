@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
   // Passthrough copies
   eleventyConfig.addPassthroughCopy("src/static");
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy({ "src/assets/static": "static" });
   eleventyConfig.addPassthroughCopy({ "src/assets/favicon": "/" });
 
   // Image shortcode (replaces Lektor's .thumbnail(640) filter)
