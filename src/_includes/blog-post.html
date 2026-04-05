@@ -1,0 +1,33 @@
+---
+layout: layout.html
+ogType: article
+---
+<a href="/musings/">&lt; Just Some Musings</a>
+<article>
+    <header>
+        <h1>{{ title }}</h1>
+        <time datetime="{{ date | dateformat('YYYY-MM-DD') }}"> — {{ date | dateformat }}</time>
+    </header>
+    <div class="blog-post-body">{{ content | safe }}</div>
+    <hr/>
+    <div class="subscribe">
+        <p>I want to start blogging a bit more. If you want to be updated on when I publish something, subscribe, and you'll be the first to know.</p>
+        <iframe class="mj-w-res-iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://app.mailjet.com/widget/iframe/68wo/GdP" width="100%"></iframe>
+        <script type="text/javascript" src="https://app.mailjet.com/statics/js/iframeResizer.min.js"></script>
+    </div>
+    <div class="comments">
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+            this.page.url = "{{ site.url }}{{ page.url }}";
+            this.page.identifier = "{{ page.url }}";
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zanderle.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        </script>
+    </div>
+</article>

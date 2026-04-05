@@ -1,0 +1,34 @@
+---
+layout: layout.html
+title: Workshops
+permalink: /workshops/
+---
+<h1>Workshops</h1>
+
+<p>Teaching is one of my favorite things. I love figuring out what's the best way to present a complex topic to someone else. Which is why preparing workshops for a specific audience (and tailoring it to their needs) is something I love doing.</p>
+
+<p><a href="/hire-me">I'm available for hire</a>, if you're interested in workshops/trainings for your company. I have a few prepared ones, but I also offer bespoke workshops/trainings. I can run the workshop/training either in person or remotely.</p>
+
+<p>Here's a list of some of the workshops and trainings that I've done in the past.</p>
+
+<ul class="panel-list">
+  {% for item in collections.workshops %}
+  <li>
+    <div class="panel-content">
+      <h2>
+        {% if item.data.showDetails %}<a href="{{ item.url }}">{{ item.data.title }}</a>
+        {% else %}{{ item.data.title }}
+        {% endif %}
+      </h2>
+      {% if item.data.excerpt %}<div>{{ item.data.excerpt | safe }}</div>{% endif %}
+      {% if item.data.tags %}
+      <ul class="tags-list">
+        {% for tag in item.data.tags %}
+        <li>{{ tag }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>

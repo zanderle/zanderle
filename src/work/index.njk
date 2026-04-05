@@ -1,0 +1,45 @@
+---
+layout: layout.html
+title: Work
+permalink: /work/
+---
+<h1>Work</h1>
+
+<p>Here's a collection of some of my clients and some of the things I do as a full stack web engineer.</p>
+<p><a href="/#services">Check out</a> the services that I offer.</p>
+<p>Besides doing consulting work and coding, I love teaching/mentoring and speaking at conferences/giving workshops. <a href="/workshops">Check out my workshops</a>!</p>
+<p>Interested in working with me? <a href="/contact">Let's talk!</a></p>
+
+<ul class="panel-list">
+  {% for item in collections.work %}
+  <li class="pure-g" id="client-{{ item.fileSlug }}">
+    {% if item.data.image %}
+    <div class="pure-u-1 pure-u-sm-2-5">
+      <img src="{{ item.data.image }}" alt="{{ item.data.title }} image" class="pure-img">
+    </div>
+    {% endif %}
+    <div class="panel-content pure-u-1 {% if item.data.image %}pure-u-sm-3-5{% endif %}">
+      <h3>
+        {% if item.data.showDetails %}<a href="{{ item.url }}">{{ item.data.title }}</a>
+        {% elif item.data.website %}<a href="{{ item.data.website }}" target="_blank" rel="noopener">{{ item.data.title }}</a>
+        {% else %}{{ item.data.title }}
+        {% endif %}
+      </h3>
+      {% if item.data.excerpt %}<p>{{ item.data.excerpt }}</p>{% endif %}
+      {% if item.data.website %}
+      <p><a href="{{ item.data.website }}" target="_blank" rel="noopener">Website &nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+      {% endif %}
+      {% if item.data.showDetails %}
+      <p><a href="{{ item.url }}">Read more...</a></p>
+      {% endif %}
+      {% if item.data.tags %}
+      <ul class="tags-list">
+        {% for tag in item.data.tags %}
+        <li>{{ tag }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>

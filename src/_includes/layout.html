@@ -1,0 +1,84 @@
+<!doctype html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/pace-js@latest/themes/silver/pace-theme-minimal.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description if description else 'Senior developer you were looking for. Hi, I\'m Žan and I\'m a full stack web engineer with a passion for user experience. Read on to see how I can help you.' }}">
+    <meta name="author" content="Žan Anderle">
+
+    <!-- Social Meta Tags -->
+    <meta name="twitter:card" content="{{ twitterCard if twitterCard else 'summary' }}">
+    <meta name="twitter:site" content="@z_anderle">
+    <meta property="og:type" content="{{ ogType if ogType else 'website' }}">
+    <meta property="og:title" content="{{ title if title else 'Welcome' }} — zanderle">
+    <meta property="og:description" content="{{ description if description else 'Senior developer you were looking for. Hi, I\'m Žan and I\'m a full stack web engineer with a passion for user experience. Read on to see how I can help you.' }}">
+    <meta property="og:image" content="/assets/static/zan.gif">
+
+    <script async defer data-domain="zanderle.com" src="https://plausible.io/js/plausible.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-16x16.png" sizes="16x16">
+
+    <link rel="stylesheet" href="/static/gen/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-tomorrow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>{{ title if title else 'Welcome' }} — zanderle</title>
+</head>
+<body>
+    <header role="banner">
+        <div>
+            <div role="heading">
+                <h1><a href="/">&lt; žanderle /&gt;</a></h1>
+                <h2>Developer by Day, Boardgamer by Night.</h2>
+            </div>
+            <nav>
+                <ul id="main-menu">
+                    {% set navItems = [
+                        {href: '/work/', title: 'Work', icon: 'fa-code'},
+                        {href: '/contact/', title: 'Contact', icon: 'fa-envelope'},
+                        {href: '/musings/', title: 'Musings', icon: 'fa-pencil'}
+                    ] %}
+                    {% for item in navItems %}
+                    <li>
+                        <a {% if page.url and page.url.startsWith(item.href) %}aria-expanded="true"{% endif %} href="{{ item.href }}">
+                            <i aria-hidden="true" class="fa fa-2x fa-fw {{ item.icon }}"></i>
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                    <li>
+                        <a href="{{ social.twitter }}" target="_blank" rel="noopener">
+                            <i aria-hidden="true" class="fa fa-2x fa-fw fa-twitter"></i>
+                            Twitter
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        {{ content | safe }}
+    </main>
+    <footer>
+        &copy; 2024 Created and designed by Žan Anderle.
+    </footer>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/gen/app.js" charset="utf-8"></script>
+</body>

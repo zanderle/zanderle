@@ -1,0 +1,38 @@
+---
+layout: layout.html
+title: Musings
+permalink: /musings/
+pagination:
+  data: collections.musings
+  size: 10
+  alias: posts
+---
+<div class="blog-index">
+  <h1>Musings</h1>
+  <p>Sometimes I do some writing. I write about Python, Django and JavaScript. And various other things.</p>
+
+  <nav>
+    <ul>
+      {% for post in posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+        <time datetime="{{ post.date | dateformat('YYYY-MM-DD') }}">{{ post.date | dateformat }}</time>
+        {% if post.data.excerpt %}<p>{{ post.data.excerpt }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {% if pagination.href.previous or pagination.href.next %}
+  <nav class="page-navigation">
+    <ul>
+      {% if pagination.href.previous %}
+      <li><a href="{{ pagination.href.previous }}">← Newer</a></li>
+      {% endif %}
+      {% if pagination.href.next %}
+      <li><a href="{{ pagination.href.next }}">Older →</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+</div>
