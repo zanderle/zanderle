@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — zanderle{% else %}zanderle{% endif %}</title>
+  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+  <link rel="stylesheet" href="/static/gen/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">zanderle</a>
+      <a href="/work/">Work</a>
+      <a href="/musings/">Musings</a>
+      <a href="/hire-me/">Hire me</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>&copy; Žan Anderle</p>
+  </footer>
+
+  <script src="/static/gen/app.js"></script>
+</body>
+</html>

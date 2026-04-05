@@ -1,3 +1,6 @@
 bower_components/
 node_modules/
 gen/
+_site/
+.DS_Store
+src/static/gen/
