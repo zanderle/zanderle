@@ -129,8 +129,3 @@ If you want to get things moving, I'm here to help! I specialize in Python, Djan
 <br/>
 
 Haven't found a specific service that suits your needs, but you'd still like to work with me? No problem, just <a href="/contact">reach out</a> and we'll have a chat.
-
-<div style="display: flex"><iframe class="mj-w-res-iframe pure-u-1 pure-u-md-3-4 pure-u-lg-2-3" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://app.mailjet.com/widget/iframe/68wo/G5z" width="100%"></iframe></div>
-<script type="text/javascript" src="https://app.mailjet.com/statics/js/iframeResizer.min.js"></script>
-
-<script type="text/javascript" src="/static/gen/data-viz.js"></script>
